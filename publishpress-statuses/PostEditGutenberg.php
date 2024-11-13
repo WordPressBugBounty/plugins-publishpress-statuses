@@ -89,7 +89,7 @@ class PostEditGutenberg
                 'ppNonce' => wp_create_nonce('pp-custom-statuses-nonce')
             ]
         );
-        
+
         add_action('admin_print_scripts', [$this, 'actPrintScripts']);
 
         global $wp_version;

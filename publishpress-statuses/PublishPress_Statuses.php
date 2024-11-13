@@ -2712,9 +2712,9 @@ class PublishPress_Statuses extends \PublishPress\PPP_Module_Base
             if (in_array($_status, ['publish', 'private', 'future'])) {
                 $check_caps = [$type_obj->cap->publish_posts];
             } else {
-                $status_change_cap = str_replace('-', '_', "status_change_{$_status}");
+            	$status_change_cap = str_replace('-', '_', "status_change_{$_status}");
                 $check_caps = [$status_change_cap];
-                $check_caps = apply_filters('publishpress_statuses_required_caps', $check_caps, 'set_status', $_status, $post_type);
+            	$check_caps = apply_filters('publishpress_statuses_required_caps', $check_caps, 'set_status', $_status, $post_type);
             }
 
             $return[$_status] = !array_diff($check_caps, array_keys($current_user->allcaps));

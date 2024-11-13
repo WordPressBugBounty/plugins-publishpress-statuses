@@ -538,7 +538,6 @@ class Admin
         // This is the only status taxonomy that existed in Planner 3.x
         // The related Permissions Pro Status Control properties are also based on these Planner 3.x status definitions.
         if ((\PublishPress_Statuses::TAXONOMY_PRE_PUBLISH != $taxonomy)) {
-        //if (!in_array($taxonomy, [\PublishPress_Statuses::TAXONOMY_CORE_STATUS, \PublishPress_Statuses::TAXONOMY_PRE_PUBLISH])) {
             $busy = false;
         	return $terms;
     	}
