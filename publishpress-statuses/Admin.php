@@ -52,7 +52,21 @@ class Admin
 
         do_action('publishpress_statuses_version_check');
 
-        if (get_option('publishpress_statuses_version') != PUBLISHPRESS_STATUSES_VERSION) {
+        $last_statuses_version = get_option('publishpress_statuses_version');
+
+        if ($last_statuses_version != PUBLISHPRESS_STATUSES_VERSION) {
+            if ('1.1.7-beta' == $last_statuses_version) {
+                // work around beta bug
+                delete_option('publishpress_status_positions');
+            }
+
+            if (!$last_statuses_version || version_compare($last_statuses_version, '1.1.7', '<')) {
+                // Ensure Visibility Statuses are enabled by default
+                if (null === get_option('presspermit_privacy_statuses_enabled', null)) {
+                    update_option('presspermit_privacy_statuses_enabled', 1);
+                }
+            }
+
             update_option('publishpress_statuses_version', PUBLISHPRESS_STATUSES_VERSION);
         }
     }
@@ -548,7 +562,7 @@ class Admin
 
         unset($moderation_statuses['future']);
 
-        $default_by_sequence = \PublishPress_Statuses::instance()->options->moderation_statuses_default_by_sequence;
+        $default_by_sequence = \PublishPress_Statuses::instance()->workflow_by_sequence;
 
         if ($post && $is_administrator && $default_by_sequence 
         && empty($post_status_obj->public) && empty($post_status_obj->private) && ('future' != $post_status) 
