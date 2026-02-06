@@ -54,13 +54,77 @@ class Admin
 
         $last_statuses_version = get_option('publishpress_statuses_version');
 
-        if ($last_statuses_version != PUBLISHPRESS_STATUSES_VERSION) {
+        if (($last_statuses_version != PUBLISHPRESS_STATUSES_VERSION) || !empty($_REQUEST['pp_reset_status_positions'])) {
+            if (version_compare($last_statuses_version, '1.2.0', '<')) {
+                if ($role = @get_role('administrator')) {
+                    $role->add_cap('pp_unpublish_posts');
+                }
+            }
+            
             if ('1.1.7-beta' == $last_statuses_version) {
                 // work around beta bug
                 delete_option('publishpress_status_positions');
+
+            } elseif (version_compare($last_statuses_version, '1.1.9', '<=') || !empty($_REQUEST['pp_reset_status_positions'])) {
+                if ($positions = get_option('publishpress_status_positions')) {
+                    $current_positions = $positions;
+                    
+                    $rev_statuses = \PublishPress_Statuses::instance()->getPostStatuses(['for_revision' => true], 'names');
+        
+                    $ordered_rev_statuses = [];
+                    $ordered_disabled_statuses = [];
+        
+                    $rev_main_pos = array_search('_revision-workflow', $positions);
+        
+                    // Move Main Rev workflow above Rev statuses
+                    foreach ($positions as $k => $status) {
+                        if ($k >= $rev_main_pos) {
+                            break;
+                        }
+        
+                        if (in_array($status, $rev_statuses) && ('draft-revision' != $status)) {
+                            unset($positions['_revision-workflow']);
+        
+                            $positions = array_merge(
+                                array_slice($positions, 0, $k),
+                                ['_revision-workflow'],
+                                array_slice($positions, $k)
+                            );
+        
+                            break;
+                        }
+                    }
+        
+                    reset($positions);
+        
+                    $rev_main_pos = array_search('_revision-workflow', $positions);
+                    $alternate_rev_pos = array_search('_revision-alternate', $positions);
+                    $disabled_pos = array_search('_disabled', $positions);
+        
+                    // Move Alternate Rev workflow above Disabled
+                    if ($alternate_rev_pos > $disabled_pos) {
+                        $last_rev_status_pos = 0;
+        
+                        foreach ($positions as $k => $status) {
+                            if (in_array($status, $rev_statuses)) {
+                                $last_rev_status_pos = $k;
+                            }
+                        }
+        
+                        $positions = array_merge(
+                            array_slice($positions, 0, $disabled_pos-1),
+                            array_slice($positions, $alternate_rev_pos, $last_rev_status_pos - $alternate_rev_status_pos + 1),
+                            array_slice($positions, $disabled_pos)
+                        );
+                    }
+        
+                    if ($positions !== $current_positions) {
+                        update_option('publishpress_status_positions', $positions);
+                    }
+                }
             }
 
-            if (!$last_statuses_version || version_compare($last_statuses_version, '1.1.7', '<')) {
+            if (!$last_statuses_version || version_compare($last_statuses_version, '1.2.0', '<')) {
                 // Ensure Visibility Statuses are enabled by default
                 if (null === get_option('presspermit_privacy_statuses_enabled', null)) {
                     update_option('presspermit_privacy_statuses_enabled', 1);
@@ -171,8 +235,8 @@ class Admin
                     }
                 }
             }
-        } elseif (\PublishPress_Functions::empty_REQUEST('post_status') 
-        || (\PublishPress_Functions::REQUEST_key('post_status') != $post->post_status)
+        } elseif (\PP_Statuses_Functions::empty_REQUEST('post_status') 
+        || (\PP_Statuses_Functions::REQUEST_key('post_status') != $post->post_status)
         ) {  // if filtering for this status, don't display caption in result rows
             $status_obj = (!empty($wp_post_statuses[$post->post_status])) ? $wp_post_statuses[$post->post_status] : false;
 
@@ -187,7 +251,7 @@ class Admin
     }
 
     function add_admin_styles() {
-        $plugin_page = \PublishPress_Functions::getPluginPage();
+        $plugin_page = \PP_Statuses_Functions::getPluginPage();
 
         if (0 === strpos($plugin_page, 'publishpress-statuses')) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended, WordPress.Security.NonceVerification.Missing
             wp_enqueue_style('publishpress-statuses-tooltips', PUBLISHPRESS_STATUSES_URL . '/common/css/_tooltip.css', [], PUBLISHPRESS_STATUSES_VERSION);
@@ -234,7 +298,7 @@ class Admin
             }
         }
 
-        $plugin_page = \PublishPress_Functions::getPluginPage();
+        $plugin_page = \PP_Statuses_Functions::getPluginPage();
 
         // Scripts and styles needed for Add Status, Edit Status, and possibly Statuses
         if (0 === strpos($plugin_page, 'publishpress-statuses')) {
@@ -266,7 +330,7 @@ class Admin
 
         // Scripts and styles for Statuses screen
         if ('publishpress-statuses' == $plugin_page
-        && in_array(\PublishPress_Functions::REQUEST_key('action'), ['', 'statuses'])
+        && in_array(\PP_Statuses_Functions::REQUEST_key('action'), ['', 'statuses'])
         ) {
             wp_enqueue_script('jquery-ui-core');
             wp_enqueue_script('jquery-ui-sortable');
@@ -321,8 +385,8 @@ class Admin
         }
 
         // Custom javascript to modify the post status dropdown where it shows up
-        if (self::is_post_management_page() && class_exists('PublishPress_Functions')) {
-            if (\PublishPress_Functions::isBlockEditorActive(['force' => \PublishPress_Statuses::instance()->options->force_editor_detection])) {
+        if (self::is_post_management_page() && class_exists('PP_Statuses_Functions')) {
+            if (\PP_Statuses_Functions::isBlockEditorActive(['force' => \PublishPress_Statuses::instance()->options->force_editor_detection])) {
                 wp_enqueue_style(
                     'publishpress-custom_status-block',
                     PUBLISHPRESS_STATUSES_URL . 'common/css/custom-status-block-editor.css',
@@ -411,7 +475,7 @@ class Admin
         }
 
         // Disable the scripts for the post page if the plugin Visual Composer is enabled.
-        if ('frontend' === \PublishPress_Functions::GET_key('vcv-action')) {
+        if ('frontend' === \PP_Statuses_Functions::GET_key('vcv-action')) {
             return false;
         }
 
@@ -495,7 +559,7 @@ class Admin
 
         if (empty($status->labels->visibility)) {
             if ('publish' == $status->name) {
-                $status->labels->visibility = esc_html(\PublishPress_Statuses::__wp('Public'));
+                $status->labels->visibility = esc_html(\PublishPress_Statuses::__wp('Published'));
 
             } elseif (!empty($status->public)) {
                 $status->labels->visibility = (!defined('WPLANG') || ('en_EN' == WPLANG))  // translators: %s is the name of a custom public status
@@ -586,30 +650,34 @@ class Admin
 			$post
 		);
 
-        // Don't exclude the current status, regardless of other arguments
-        $_args = ['include_status' => $post_status_obj->name];
+        $_args = [];
 
-        if ($post) {
-            if ($default_by_sequence && \PublishPress_Statuses::instance()->options->status_dropdown_show_current_branch_only) {
-                if (!empty($post_status_obj->status_parent)) {
-                    // If current status is a sub-status, only offer:
-                    // * other sub-statuses in the same workflow branch
-                    // * next status after current status
-                    $_args['status_parent'] = $post_status_obj->status_parent;
+        if (!empty($post_status_obj) && !empty($post_status_obj->name)) {
+            // Don't exclude the current status, regardless of other arguments
+            $_args['include_status'] = $post_status_obj->name;
 
-                    if ($status_obj = \PublishPress_Statuses::getNextStatusObject($post->ID, compact('moderation_statuses', 'default_by_sequence', 'post_status'))) {
-                        $_args['whitelist_status'] = $status_obj->name;
-                    }
-                } else {
-                    // If current status is in main workflow, only display:
-                    // * other top level workflow statuses
-                    // * sub-statuses of the current status
-                    $_args['status_parent'] = '';
+            if ($post) {
+                if ($default_by_sequence && \PublishPress_Statuses::instance()->options->status_dropdown_show_current_branch_only) {
+                    if (!empty($post_status_obj->status_parent)) {
+                        // If current status is a sub-status, only offer:
+                        // * other sub-statuses in the same workflow branch
+                        // * next status after current status
+                        $_args['status_parent'] = $post_status_obj->status_parent;
 
-                    if ($status_children = \PublishPress_Statuses::getStatusChildren($post_status_obj->name, $moderation_statuses)) {
-                        // These statuses will not be added to the array if already removed by filterAvailablePostStatuses(),
-                        // but will be exempted from the top level status_parent requirement
-                        $_args['whitelist_status'] = array_keys($status_children);
+                        if ($status_obj = \PublishPress_Statuses::getNextStatusObject($post->ID, compact('moderation_statuses', 'default_by_sequence', 'post_status'))) {
+                            $_args['whitelist_status'] = $status_obj->name;
+                        }
+                    } else {
+                        // If current status is in main workflow, only display:
+                        // * other top level workflow statuses
+                        // * sub-statuses of the current status
+                        $_args['status_parent'] = '';
+
+                        if ($status_children = \PublishPress_Statuses::getStatusChildren($post_status_obj->name, $moderation_statuses)) {
+                            // These statuses will not be added to the array if already removed by filterAvailablePostStatuses(),
+                            // but will be exempted from the top level status_parent requirement
+                            $_args['whitelist_status'] = array_keys($status_children);
+                        }
                     }
                 }
             }
@@ -809,7 +877,7 @@ class Admin
         if ($force_planner_import || (
         $auto_import                     // Statuses < 1.0.3.2 updated archive array without performing import, and earlier versions did not save import version
         && ($queued_term_descriptions || empty($import_run_version) || version_compare($import_run_version, '1.0.3.2', '<')) 
-        && (!defined('PUBLISHPRESS_STATUSES_NO_AUTO_IMPORT')) && (!defined('PUBLISHPRESS_STATUSES_NO_PLANNER_IMPORT'))
+        && defined('PUBLISHPRESS_STATUSES_PLANNER_AUTO_IMPORT') && !defined('PUBLISHPRESS_STATUSES_NO_PLANNER_IMPORT')
         )) {
             // Failsafe mechanism will disable auto-import if this option is not deleted by the Planner import function.
             update_option('publishpress_statuses_planner_import_gmt', gmdate("Y-m-d H:i:s"));
@@ -831,7 +899,7 @@ class Admin
             	// Ensure stases reload following import
                 wp_cache_delete('publishpress_status_positions', 'options');
 
-                if (('admin.php' == $pagenow) && \PublishPress_Functions::is_REQUEST('publishpress-statuses')) {
+                if (('admin.php' == $pagenow) && \PP_Statuses_Functions::is_REQUEST('publishpress-statuses')) {
                     \PublishPress_Statuses::instance(true);
                 }
             }

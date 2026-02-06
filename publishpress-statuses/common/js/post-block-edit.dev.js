@@ -161,7 +161,12 @@ jQuery(document).ready(function ($) {
 
             if ($('button.editor-post-publish-panel__toggle').length) {
                 if (typeof ppObjEdit.prePublish != 'undefined' && ppObjEdit.prePublish) { // && ($('button.editor-post-publish-panel__toggle').html() != __('Schedule…'))) {
-                    PP_RecaptionButton('prePublish', 'button.editor-post-publish-panel__toggle', ppObjEdit.prePublish);
+                    
+                    let status = wp.data.select('core/editor').getEditedPostAttribute('status');
+
+                    if (-1 == window.PPCustomStatuses.publishedStatuses.indexOf(status)) {
+                        PP_RecaptionButton('prePublish', 'button.editor-post-publish-panel__toggle', ppObjEdit.prePublish);
+                    }
                 }
 
                 // Presence of pre-publish button means publish button is not loaded yet. Start looking for it once Pre-Publish button is clicked.
@@ -171,6 +176,11 @@ jQuery(document).ready(function ($) {
             } else {
                 PP_SetPublishButtonCaption(ppObjEdit.publish, false);
             }
+        }
+
+        if (ppObjEdit.lockStatus) {
+            $('.editor-change-status__options input').prop('disabled', true);
+            $('.publishpress-extended-post-privacy select').prop('disabled', true);
         }
     }
     var initInterval = setInterval(PP_InitializeBlockEditorModifications, 50);
@@ -216,7 +226,7 @@ jQuery(document).ready(function ($) {
                             ppObjEdit.saveAs = ppObjEdit.update;
                         } else {
                             if ($('button.editor-post-publish-panel__toggle').length) {
-                                if (typeof ppObjEdit.prePublish != 'undefined' && ppObjEdit.prePublish && ($('button.editor-post-publish-panel__toggle').html() != __('Schedule…'))) {
+                                if (typeof ppObjEdit.prePublish != 'undefined' && ppObjEdit.prePublish && ($('button.editor-post-publish-panel__toggle').html() != ppObjEdit.scheduleCaption)) {
                                     
                                     var pendingStatusArr = new Array('pending', '_pending');
                                     

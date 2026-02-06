@@ -351,12 +351,7 @@ padding-left: 20px;
 padding-top: 10px;
 }
 
-table.status-row td.name div.row-actions span.disable a {
-padding-right: 5px;
-}
-
 table.status-row td.name div.row-actions span.delete a {
-padding-left: 5px;
 font-weight: bold;
 }
 
@@ -391,6 +386,10 @@ font-size: 14px;
 
 .pp-custom-status-hints a, .pp-custom-status-hints a:link, .pp-custom-status-hints a:visited {
 font-weight: bold;
+}
+
+tr.cme-postmeta-status {
+background-color: #e8e8e8;
 }
 
 
@@ -649,6 +648,33 @@ user-select: none;
     background: #fcca46;
     color: #000 !important;
 }
+
+
+/* Settings */
+#pp_statuses_default_privacy {
+  display: flex;
+}
+
+#pp_statuses_default_privacy th, #pp_statuses_default_privacy td {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  border-bottom: none;
+  font-weight: inherit;
+  text-align: right;
+}
+
+#pp_statuses_default_privacy th {
+  width: 100px;
+  width: inherit;
+  text-align: right;
+  vertical-align: baseline;
+  padding-right: 0;
+}
+
+#pp_statuses_default_privacy td {
+  vertical-align: baseline;
+}
+
 
 div.pp-statuses-warning {
   background: #fff;
