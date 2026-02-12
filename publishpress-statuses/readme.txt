@@ -5,8 +5,8 @@ Author URI: https://publishpress.com
 Tags: custom statuses, workflow, pending review, status manager, archived status
 Requires at least: 5.5
 Requires PHP: 7.2.5
-Tested up to: 6.8
-Stable tag: 1.2.0
+Tested up to: 6.9
+Stable tag: 1.2.2
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -14,13 +14,13 @@ The PublishPress Statuses plugin allows you to create additional statuses for yo
 
 == Description ==
 
-Have you ever wanted to label a WordPress post something other than "Draft" or "Pending Review"? The [PublishPress Statuses](https://publishpress.com/statuses/) plugin can help.
+Have you ever wanted to label a WordPress post something other than "Draft" or "Pending Review"? The [PublishPress Statuses](https://publishpress.com/statuses/) plugin can help. 
 
 PublishPress Statuses allows you to create additional statuses for your posts. For example, you can add statuses such as "In Progress", "Needs Work", or "Rejected". You can also control which users can move posts to each status.
 
 ## Why Use PublishPress Statuses?
 
-WordPress provides you with only two statuses for your post: "Draft" or "Pending Review". This means that before your content is published it can only be labeled as "Draft" or "Pending Review".
+WordPress provides you with only two statuses for your post: "Draft" or "Pending Review". This means that before your content is published it can only be labeled as "Draft" or "Pending Review". 
 
 Those statuses are too limiting for many publishers. For example, what label should you use for content that is assigned to a writer? What label should you use for a post that needs work, or has been rejected? With the PublishPress Statuses plugin, you can add new statuses that accurately describe the stages of your publishing process.
 
@@ -31,9 +31,9 @@ There are two types of statuses:
 
 ## Pre-Publication Statuses
 
-Go to the "Statuses" area in your WordPress site and you'll six different statuses. This is the [main workflow](https://publishpress.com/knowledge-base/main-workflow/). Every post on your site must use this workflow. However, with PublishPress Statuses, you can move, rearrange and add to this workflow.
+Go to the "Statuses" area in your WordPress site and you'll six different statuses. This is the [main workflow](https://publishpress.com/knowledge-base/main-workflow/). Every post on your site must use this workflow. However, with PublishPress Statuses, you can move, rearrange and add to this workflow. 
 
-- **Draft**: This is the WordPress default status and can not be modified.
+- **Draft**: This is the WordPress default status and can not be modified. 
 - **Pitch**: This is a new status. You can use this status to indicate the post is just an idea.
 - **Assigned**: This is a new status. You can use this status to show the post has been given to a writer.
 - **In Progress**: This is a new status. You can use this status to if the post is being worked on.
@@ -50,7 +50,7 @@ PublishPress Statuses allows to decide which users can move content to which sta
 
 [See how control access to statuses](https://publishpress.com/knowledge-base/statuses-options/).
 
-You can take this further and decide who assign, edit, and delete content in each status. This is possible if you also use the PublishPress Permissions Pro plugin.
+You can take this further and decide who assign, edit, and delete content in each status. This is possible if you also use the PublishPress Permissions Pro plugin. 
 
 [Click here to see add advanced capabilities to statuses](https://publishpress.com/knowledge-base/extended-capabilities-statuses/).
 
@@ -74,7 +74,7 @@ The PublishPress Statuses plugin integrates with the PublishPress Permissions Pr
 
 [See how control access to visibility statuses](https://publishpress.com/knowledge-base/custom-capabilities-visibility-statuses/).
 
-You can take this further and decide who assign, edit, and delete content in each status. This is possible if you also use the PublishPress Permissions Pro plugin.
+You can take this further and decide who assign, edit, and delete content in each status. This is possible if you also use the PublishPress Permissions Pro plugin. 
 
 ## Join PublishPress and get the Pro plugins ##
 
@@ -95,13 +95,13 @@ Join PublishPress and you'll get access to these ten Pro plugins:
 
 Together, these plugins are a suite of powerful publishing tools for WordPress. If you need to create a professional workflow in WordPress, with moderation, revisions, permissions and more, then you should try PublishPress.
 
-## Bug Reports
+## Bug Reports 
 
 Bug reports for PublishPress Statuses are welcomed in our [repository on GitHub](https://github.com/publishpress/publishpress-statuses). Please note that GitHub is not a support forum, and that issues that are not properly qualified as bugs will be closed.
 
 == Screenshots ==
 
-1. Using PublishPress Statuses you can add custom workflow options that are available when editing posts. You can build one main workflow for your posts. This workflow will be available to your users on the post editing screen.
+1. Using PublishPress Statuses you can add custom workflow options that are available when editing posts. You can build one main workflow for your posts. This workflow will be available to your users on the post editing screen. 
 2. In addition to the default workflow, PublishPress Statuses allows you to create alternate workflows. These statuses are for content that is not on a direct path to publication. Examples of these alternate workflows include "Deferred", "Needs Work" and "Rejected".
 3. PublishPress Statuses supports branches in your workflows. You can create parent and child statuses. This allows posts to move through the individual branch before returning to the main workflow.
 4. PublishPress Statuses allows you to customize which roles can assign posts to each status. You can give a user role the ability to move a post to just a single statuses. Or you can give a user role full access to your whole workflow.
@@ -158,7 +158,7 @@ A post in the Draft status is not published and is not visible to the public. On
 
 Yes, you can use the Scheduled status with this plugin. "Future" is one of the default post statuses available in WordPress. You will often see it called "Scheduled".
 
-A post in the Future status is not published yet, but is scheduled to be published in a future date.
+A post in the Future status is not published yet, but is scheduled to be published in a future date. 
 
 [Click here to see more about the Future status](https://publishpress.com/knowledge-base/future/).
 
