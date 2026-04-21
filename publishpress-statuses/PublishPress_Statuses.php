@@ -3,7 +3,7 @@
  * @package PublishPress
  * @author  PublishPress
  *
- * Copyright (c) 2025 PublishPress
+ * Copyright (c) 2026 PublishPress
  *
  * ------------------------------------------------------------------------------
  * Portions of this code were originally derived from the Edit Flow plugin
@@ -146,6 +146,7 @@ class PublishPress_Statuses extends \PublishPress\PPP_Module_Base
 
         add_filter('pre_post_status', [$this, 'fltPostStatus'], 20);
         add_filter('publishpress_statuses_default_visibility', [$this, 'fltDefaultPrivacy'], 10, 2);
+        add_filter('pre_post_status', [$this, 'fltAppyDefaultVisibility'], 30);
 
         add_action('user_has_cap', [$this, 'fltUserHasCap'], 20, 3);
 
@@ -160,8 +161,43 @@ class PublishPress_Statuses extends \PublishPress\PPP_Module_Base
         add_filter('cme_plugin_capabilities', [$this, 'fltRegisterCapabilities']);
         add_filter('cme_capability_descriptions', [$this, 'fltCapDescriptions']);
 
-		// ShortPixel Critical CSS plugin: https://wordpress.org/support/topic/conflict-with-taxonomies-that-have-same-name-as-a-wp_post-field/
+        // ShortPixel Critical CSS plugin: https://wordpress.org/support/topic/conflict-with-taxonomies-that-have-same-name-as-a-wp_post-field/
         add_filter('shortpixel_critical_css_manual_term_css', function($val) {return false;}, 5);
+
+        global $pagenow;
+
+        // Don't allow plugin name to be translated on Plugins screen
+        if (is_admin() && !empty($pagenow) && ('plugins.php' == $pagenow)) {
+            add_filter(
+                'gettext', 
+                function($translation, $text, $domain) {
+                    if ('PublishPress Statuses Free' == $text) {
+                        return 'PublishPress Statuses Free';
+                    }
+
+                    return $translation;
+                }, 50, 3
+            );
+            
+            // @todo: Ideally, WordPress would provide a post-translation filter to eliminate the need for gettext filtering.
+            // phpcs:ignore Squiz.PHP.CommentedOutCode.Found
+            /* 
+            add_filter(
+                'plugins_list', 
+                function($plugins) {
+                    $plugin_dir = trailingslashit(str_replace('\\', '/', WP_PLUGIN_DIR));
+                    $plugin_relpath = str_replace($plugin_dir, '', str_replace('\\', '/', PUBLISHPRESS_STATUSES_FILE));
+
+                    if (isset($plugins['all'][$plugin_relpath])) {
+                        $plugins['all'][$plugin_relpath]['Name'] = 'PublishPress Statuses Free';
+                        $plugins['all'][$plugin_relpath]['Title'] = 'PublishPress Statuses Free';
+                        $plugins['all'][$plugin_relpath]['AuthorName'] = 'PublishPress';
+                    }
+                    return $plugins;
+                }, 50
+            );
+            */
+        }
 
         // Register the module with PublishPress
         
@@ -186,6 +222,7 @@ class PublishPress_Statuses extends \PublishPress\PPP_Module_Base
             'supplemental_cap_moderate_any' => 0,
             'planner_add_post_custom_statuses' => 1,
             'moderation_statuses_default_by_sequence' => 0,
+            'hide_manual_status_selectors' => 0,
             'status_dropdown_show_current_branch_only' => 0,
             'force_editor_detection' => '',
             'label_storage' => '',
@@ -668,6 +705,7 @@ class PublishPress_Statuses extends \PublishPress\PPP_Module_Base
                     'save_as' => \PublishPress_Statuses::__wp('Save Draft')
                 ],
                 'description' => __('New post, not yet submitted.', 'publishpress-statuses'),
+                'default_description' => 'New post, not yet submitted.',
                 'color' => '#767676',
                 'icon' => 'dashicons-media-default',
                 'position' => 0,
@@ -689,6 +727,7 @@ class PublishPress_Statuses extends \PublishPress\PPP_Module_Base
                     'publish' => \PublishPress_Statuses::__wp('Submit for Review')
                 ],
                 'description' => __('Post is awaiting review.', 'publishpress-statuses'),
+                'default_description' => 'Post is awaiting review.',
                 'color' => '#b95c00',
                 'icon' => 'dashicons-clock',
                 'position' => 4,
@@ -708,6 +747,7 @@ class PublishPress_Statuses extends \PublishPress\PPP_Module_Base
                     'publish' => \PublishPress_Statuses::__wp('Schedule')
                 ],
                 'description' => __('Post is scheduled for publication.', 'publishpress-statuses'),
+                'default_description' => 'Post is scheduled for publication.',
                 'color' => '#8440f0',
                 'icon' => 'dashicons-calendar-alt',
                 'position' => 7,
@@ -726,6 +766,7 @@ class PublishPress_Statuses extends \PublishPress\PPP_Module_Base
                     'publish' => \PublishPress_Statuses::__wp('Publish')
                 ],
                 'description' => __('Post is published, publicly visible.', 'publishpress-statuses'),
+                'default_description' => 'Post is published, publicly visible.',
                 'color' => '#207720',
                 'icon' => 'dashicons-yes',
                 'position' => 8,
@@ -744,6 +785,7 @@ class PublishPress_Statuses extends \PublishPress\PPP_Module_Base
                     'publish' => \PublishPress_Statuses::__wp('Save')
                 ],
                 'description' => __('Post is published with private visibility.', 'publishpress-statuses'),
+                'default_description' => 'Post is published with private visibility.',
                 'color' => '#b40000',
                 'icon' => 'dashicons-lock',
                 'position' => 9,
@@ -806,6 +848,7 @@ class PublishPress_Statuses extends \PublishPress\PPP_Module_Base
                 'default_labels' => (object) ['publish' => 'Pitch'],
                 'labels' => (object) ['publish' => _x('Pitch', 'post action/button label', 'publishpress-statuses')],
                 'description' => __('Idea proposed; waiting for acceptance.', 'publishpress-statuses'),
+                'default_description' => 'Idea proposed; waiting for acceptance.',
                 'color' => '#887618',
                 'icon' => 'dashicons-lightbulb',
                 'position' => 1,
@@ -820,6 +863,7 @@ class PublishPress_Statuses extends \PublishPress\PPP_Module_Base
                 'default_labels' => (object) ['publish' => 'Assign'],
                 'labels' => (object) ['publish' => __('Assign', 'publishpress-statuses')],
                 'description' => __('Post idea assigned to writer.', 'publishpress-statuses'),
+                'default_description' => 'Post idea assigned to writer.',
                 'color' => '#009ba0',
                 'icon' => 'dashicons-admin-users',
                 'position' => 2,
@@ -834,6 +878,7 @@ class PublishPress_Statuses extends \PublishPress\PPP_Module_Base
                 'default_labels' => (object) ['publish' => 'Mark In Progress'],
                 'labels' => (object) ['publish' => __('Mark In Progress', 'publishpress-statuses')],
                 'description' => __('Writer is working on the post.', 'publishpress-statuses'),
+                'default_description' => 'Writer is working on the post.',
                 'color' => '#8c5400',
                 'icon' => 'dashicons-performance',
                 'position' => 3,
@@ -848,24 +893,11 @@ class PublishPress_Statuses extends \PublishPress\PPP_Module_Base
                 'default_labels' => (object) ['publish' => 'Approve'],
                 'labels' => (object) ['publish' => __('Approve', 'publishpress-statuses')],
                 'description' => __('Post has been approved for publication.', 'publishpress-statuses'),
+                'default_description' => 'Post has been approved for publication.',
                 'color' => '#304baa',
                 'icon' => 'dashicons-yes-alt',
                 'position' => 5,
                 'order' => 250,
-                'moderation' => true,
-                'pp_builtin' => true,
-            ],
-
-            'deferred' => (object) [
-                'default_label' => 'Deferred',
-                'label' => __('Deferred', 'publishpress-statuses'),
-                'default_labels' => (object) ['publish' => 'Defer'],
-                'labels' => (object) ['publish' => __('Defer', 'publishpress-statuses')],
-                'description' => __('Post has been deferred for future consideration.', 'publishpress-statuses'),
-                'color' => '#9b9b9b',
-                'icon' => 'dashicons-coffee',
-                'position' => $default_alternate_position + 1,
-                'order' => 280,
                 'moderation' => true,
                 'pp_builtin' => true,
             ],
@@ -876,6 +908,7 @@ class PublishPress_Statuses extends \PublishPress\PPP_Module_Base
                 'default_labels' => (object) ['publish' => 'Set to Needs Work'],
                 'labels' => (object) ['publish' => __('Set to Needs Work', 'publishpress-statuses')],
                 'description' => __('Post needs work before further review.', 'publishpress-statuses'),
+                'default_description' => 'Post needs work before further review.',
                 'color' => '#A88F8D',
                 'icon' => 'dashicons-image-crop',
                 'position' => $default_alternate_position + 2,
@@ -890,6 +923,7 @@ class PublishPress_Statuses extends \PublishPress\PPP_Module_Base
                 'default_labels' => (object) ['publish' => 'Reject'],
                 'labels' => (object) ['publish' => __('Reject', 'publishpress-statuses')],
                 'description' => __('Post has been rejected.', 'publishpress-statuses'),
+                'default_description' => 'Post has been rejected.',
                 'color' => '#6b0000',
                 'icon' => 'dashicons-thumbs-down',
                 'position' => $default_alternate_position + 3,
@@ -1031,12 +1065,28 @@ class PublishPress_Statuses extends \PublishPress\PPP_Module_Base
         $taxonomy = self::TAXONOMY_PRE_PUBLISH;
 
         $statuses = [
+            'deferred' => (object) [
+                'default_label' => 'Deferred',
+                'label' => __('Deferred', 'publishpress-statuses'),
+                'default_labels' => (object) ['publish' => 'Defer'],
+                'labels' => (object) ['publish' => __('Defer', 'publishpress-statuses')],
+                'description' => __('Post has been deferred for future consideration.', 'publishpress-statuses'),
+                'default_description' => 'Post has been deferred for future consideration.',
+                'color' => '#9b9b9b',
+                'icon' => 'dashicons-coffee',
+                'position' => $default_disabled_position + 1,
+                'order' => 280,
+                'moderation' => true,
+                'pp_builtin' => true,
+            ],
+
             'committee' => (object) [
                 'default_label' => 'Committee',
                 'label' => __('Committee', 'publishpress-statuses'),
                 'default_labels' => (object) ['publish' => 'Refer to Committee'],
                 'labels' => (object) ['publish' => __('Refer to Committee', 'publishpress-statuses')],
                 'description' => __('Post has been referred to committee.', 'publishpress-statuses'),
+                'default_description' => 'Post has been referred to committee.',
                 'color' => '#791bb7',
                 'icon' => 'dashicons-welcome-learn-more',
                 'position' => $default_disabled_position + 2,
@@ -1052,9 +1102,10 @@ class PublishPress_Statuses extends \PublishPress\PPP_Module_Base
                 'default_labels' => (object) ['publish' => 'Set to Committee Review'],
                 'labels' => (object) ['publish' => __('Set to Committee Review', 'publishpress-statuses')],
                 'description' => __('Committee is reviewing the post.', 'publishpress-statuses'),
+                'default_description' => 'Committee is reviewing the post.',
                 'color' => '#ba7925',
                 'icon' => 'dashicons-search',
-                'position' => $default_disabled_position + 2,
+                'position' => $default_disabled_position + 3,
                 'order' => 352,
                 'moderation' => true,
                 'pp_builtin' => true,
@@ -1067,9 +1118,10 @@ class PublishPress_Statuses extends \PublishPress\PPP_Module_Base
                 'default_labels' => (object) ['publish' => 'Set to Committee Progress'],
                 'labels' => (object) ['publish' => __('Set to Committee Progress', 'publishpress-statuses')],
                 'description' => __('Committee is editing the post.', 'publishpress-statuses'),
+                'default_description' => 'Committee is editing the post.',
                 'color' => '#A8902B',
                 'icon' => 'dashicons-format-chat',
-                'position' => $default_disabled_position + 3,
+                'position' => $default_disabled_position + 4,
                 'order' => 354,
                 'moderation' => true,
                 'pp_builtin' => true,
@@ -1082,9 +1134,10 @@ class PublishPress_Statuses extends \PublishPress\PPP_Module_Base
                 'default_labels' => (object) ['publish' => 'Set Committee Approval'],
                 'labels' => (object) ['publish' => __('Set Committee Approval', 'publishpress-statuses')],
                 'description' => __('Committee has approved the post.', 'publishpress-statuses'),
+                'default_description' => 'Committee has approved the post.',
                 'color' => '#22a522',
                 'icon' => 'dashicons-editor-break',
-                'position' => $default_disabled_position + 4,
+                'position' => $default_disabled_position + 5,
                 'order' => 358,
                 'moderation' => true,
                 'pp_builtin' => true,
@@ -1464,10 +1517,25 @@ class PublishPress_Statuses extends \PublishPress\PPP_Module_Base
         } else {
             $status_obj = $status;
         }
+
+        if (!empty($status_obj->_builtin) || !empty($status_obj->pp_builtin)) {
+            $options = \PublishPress_Statuses::instance()->options;
+
+            if (
+                !empty($options) 
+                && (!empty($options->label_storage) && ('user' == $options->label_storage))
+            ) {
+                return true;
+            }
+        }
         
         switch ($property) {
             case 'label':
                 return (!empty($status_obj->default_label) && ($caption == $status_obj->default_label));
+                break;
+
+            case 'description':
+                return (!empty($status_obj->default_description) && ($caption == $status_obj->default_description));
                 break;
 
             case 'save_as':
@@ -2081,7 +2149,7 @@ class PublishPress_Statuses extends \PublishPress\PPP_Module_Base
                             $wp_post_statuses[$status_name]->$prop = $val;
                         }
 
-                        if ('labels' == $prop) {
+                        if ('label' == $prop) {
                             // Disregard the stored value if it is the same as hardcoded defaults. This allows for translation.
                             if (!$val || (!empty($all_statuses[$status_name]->default_label) && ($val == $all_statuses[$status_name]->default_label))) {
                                 continue;
@@ -2447,6 +2515,7 @@ class PublishPress_Statuses extends \PublishPress\PPP_Module_Base
                 break;
 
             case 'edit-status':
+            case 'edit-status-labels':
                 $args['page'] = 'publishpress-statuses';
 
                 if (!empty($args['slug'])) {
@@ -3316,7 +3385,7 @@ class PublishPress_Statuses extends \PublishPress\PPP_Module_Base
         } elseif (!isset($_REQUEST['visibility'])) { // bypass this filter with Classic Editor
             $post_status = (empty($data['post_status'])) ? '' : $data['post_status'];
             $data['post_status'] = $this->fltPostStatus($post_status, ['post_id' => $postarr['ID']]);
-        }
+        } 
         
         if ('publish' == $data['post_status']) {
             if (!empty($data['post_date_gmt'])) {
@@ -3368,6 +3437,49 @@ class PublishPress_Statuses extends \PublishPress\PPP_Module_Base
         return $post_status;
     }
 
+    public function fltAppyDefaultVisibility($status, $args = [])
+    {
+        global $pagenow;
+        if (in_array($status, ['auto-draft', 'inherit', 'trash']) 
+        || (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) 
+        || ('async-upload.php' == $pagenow) 
+        || ((strpos($status, 'wc-') === 0) && class_exists('WooCommerce') && !empty($_GET) && !empty($_GET['wc-ajax']) && ('checkout' == $_GET['wc-ajax']))     // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+        ) {
+            return $status;
+        }
+
+        require_once(__DIR__ . '/PostSave.php');
+
+        $orig_status = $status;
+
+        $status = \PublishPress\Statuses\PostSave::fltPostStatus($status, $args);
+        $status = \PublishPress\Statuses\PostSave::flt_force_visibility($status);
+
+        if (!$post_id = \PublishPress_Statuses::instance()->getCurrentSanitizePostID()) {
+            $post_id = \PP_Statuses_Functions::getPostID();
+        }
+        
+        if ($post_id) {
+            if ($orig_status != $status) {
+                if (!in_array($status, ['draft'])) {
+                    $this->filtered_post_status[$post_id] = $status;
+                }
+            }
+
+            $post_type = get_post_field('post_type', $post_id);
+
+            if (!in_array($post_type, apply_filters('publishpress_statuses_basic_filtering_post_types', ['forum', 'topic', 'reply']))) {
+                if (!\PublishPress_Statuses::haveStatusPermission('set_status', $post_type, $status)) {
+                    if ($current_status = get_post_field('post_status', $post_id)) {
+                        return $current_status;
+                    }
+                }
+            }
+        }
+
+        return $status;
+    }
+
     // If a public or private status is selected, change it to the specified force_visibility status
     public static function flt_force_visibility($post_status)
     {
@@ -3392,11 +3504,11 @@ class PublishPress_Statuses extends \PublishPress\PPP_Module_Base
         } else {
             $_post = false;
         }
-
+        
         if (!\PP_Statuses_Functions::empty_POST('post_password')) {
             return $post_status;
         }
-
+    
         if (!empty($_post) && !empty($_post->post_type)) {
             $post_type = $_post->post_type;
         } else {
@@ -3404,7 +3516,7 @@ class PublishPress_Statuses extends \PublishPress\PPP_Module_Base
                 return $post_status;
             }
         }
-
+        
         $options = \PublishPress_Statuses::instance()->options;
 
         if (!empty($_post) && !empty($options->force_default_privacy) && !empty($options->force_default_privacy[$post_type])) {
@@ -3428,22 +3540,22 @@ class PublishPress_Statuses extends \PublishPress\PPP_Module_Base
             if (!empty($status_obj->public) || !empty($status_obj->private) || !empty($lock_publication)) {
                 $default_privacy = (is_object($options) && !empty($options->default_privacy) && !empty($options->default_privacy[$post_type])) ? $options->default_privacy[$post_type] : 'publish';
         
-                if (get_post_status_object($default_privacy)) {
+                if (get_post_status_object($default_privacy)) {    
                     if ($post_id = \PP_Statuses_Functions::getPostID()) {
                         $_post = get_post($post_id);
                     }
     
                     if (!empty($_post)) {
-                        if ( $stored_status = get_post_meta($_post->ID, '_pp_original_status') ) {
-                            $stored_status_obj = get_post_status_object($stored_status);
-                        }
+                    if ( $stored_status = get_post_meta($_post->ID, '_pp_original_status') ) {
+                        $stored_status_obj = get_post_status_object($stored_status);
+                    }
                     }
     
                     if (empty($stored_status_obj) || (empty($stored_status_obj->public) && empty($stored_status_obj->private))) {
                         $post_status = $default_privacy;
     
                         if (!empty($_post)) {
-                            delete_post_meta($_post->ID, '_pp_original_status');
+                        delete_post_meta($_post->ID, '_pp_original_status');
                         }
                     }
                 }

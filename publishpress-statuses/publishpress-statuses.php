@@ -1,9 +1,9 @@
 <?php
 /**
- * Plugin Name: PublishPress Statuses
+ * Plugin Name: PublishPress Statuses Free
  * Plugin URI:  https://publishpress.com/statuses
  * Description: Manage and create post statuses to customize your editorial workflow
- * Version: 1.2.4
+ * Version: 1.3.0
  * Author: PublishPress
  * Author URI:  https://publishpress.com/
  * Text Domain: publishpress-statuses
@@ -12,7 +12,7 @@
  * Requires PHP: 7.2.5
  * License: GPLv3
  *
- * Copyright (c) 2025 PublishPress
+ * Copyright (c) 2026 PublishPress
  *
  * GNU General Public License, Free Software Foundation <https://www.gnu.org/licenses/gpl-3.0.html>
  *
@@ -31,7 +31,7 @@
  *
  * @package     PublishPress Statuses
  * @author      PublishPress
- * @copyright   Copyright (C) 2025 PublishPress. All rights reserved.
+ * @copyright   Copyright (C) 2026 PublishPress. All rights reserved.
  * @license		GNU General Public License version 3
  * @link		https://publishpress.com/
  *
@@ -150,6 +150,24 @@ if (!defined('PUBLISHPRESS_STATUSES_FILE') && !$publishpress_statuses_loaded_by_
     ) {
         require_once PUBLISHPRESS_STATUSES_INTERNAL_VENDORPATH . '/autoload.php';
     }
+
+    // Load bundled-translations library
+    $bundledTranslationsPath = '/publishpress/bundled-translations/core/include.php';
+    if (file_exists(PUBLISHPRESS_STATUSES_INTERNAL_VENDORPATH . $bundledTranslationsPath)) {
+        require_once PUBLISHPRESS_STATUSES_INTERNAL_VENDORPATH . $bundledTranslationsPath;
+    }
+
+    // Initialize bundled translations
+    add_action('plugins_loaded', function() {
+        if (class_exists('PublishPress\BundledTranslations\BundledTranslations')) {
+            $bundledTranslations = new PublishPress\BundledTranslations\BundledTranslations(
+                'publishpress-statuses',
+                __DIR__ . '/languages',
+                __FILE__
+            );
+            $bundledTranslations->init();
+        }
+    }, 10);
 }
 
 if ((!defined('PUBLISHPRESS_STATUSES_FILE') && !$pro_active) || $publishpress_statuses_loaded_by_pro) {
@@ -227,7 +245,7 @@ if ((!defined('PUBLISHPRESS_STATUSES_FILE') && !$pro_active) || $publishpress_st
         }
         
         if (empty($interrupt_load)) {
-            define('PUBLISHPRESS_STATUSES_VERSION', '1.2.4');
+            define('PUBLISHPRESS_STATUSES_VERSION', '1.3.0');
 
             define('PUBLISHPRESS_STATUSES_URL', trailingslashit(plugins_url('', __FILE__)));    // @todo: vendor lib
 
@@ -243,9 +261,22 @@ if ((!defined('PUBLISHPRESS_STATUSES_FILE') && !$pro_active) || $publishpress_st
                     require_once(__DIR__ . '/includes-core/CoreAdmin.php');
                     new \PublishPress\Statuses\CoreAdmin();
                 }
+
+                // Include a back compat class if an older version of status-capabilities library will be used
+                add_filter('publishpress_status_capabilities_library',
+                    function($status_caps_package_to_use) {
+                        if (!empty($status_caps_package_to_use) && !empty($status_caps_package_to_use->version)) {
+                            if (version_compare($status_caps_package_to_use->version, '1.3.0', '<')) {
+                                require_once(__DIR__ . '/includes-core/PublishPress_Functions.php');
+                            }
+                        }
+
+                        return $status_caps_package_to_use;
+                    }, 99
+                );
             }
 
-            require_once(__DIR__ . '/lib/publishpress-module/Module_Base.php');
+            require_once(__DIR__ . '/publishpress-module/Module_Base.php');
             new \PublishPress\PPP_Module_Base();
 
             require_once(__DIR__ . '/PublishPress_Statuses.php');
