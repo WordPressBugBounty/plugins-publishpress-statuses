@@ -165,11 +165,11 @@ class StatusListTable extends \WP_List_Table
         $columns = [
             'position' => __('Position', 'publishpress-statuses'),
             'status_name' => __('Status Name', 'publishpress-statuses'),
-            'name' => \PublishPress_Statuses::__wp('Name', 'publishpress-statuses'),
+            'name' => __('Name', 'publishpress-statuses'),
             'icon' => __('Icon', 'publishpress-statuses'),
             'roles' => esc_html__('Roles', 'publishpress-statuses'),
             'post_types' => esc_html__('Post Types', 'publishpress-statuses'),
-            'description' => \PublishPress_Statuses::__wp('Description', 'publishpress-statuses'),
+            'description' => __('Description', 'publishpress-statuses'),
         ];
 
         return apply_filters('publishpress_statuses_admin_columns', $columns);
@@ -762,14 +762,14 @@ do_action('publishpress_statuses_table_row', $key, []);
                             $types_caption = sprintf(__('%s, more...', 'publishpress-statuses'), $types_caption);
                         }
                     } else {
-                        $types_caption = \PublishPress_Statuses::__wp('All');
+                        $types_caption = __('All');
                     }
 
                     $url = admin_url("admin.php?action=edit-status&name={$item->name}&page=publishpress-statuses&pp_tab=post_types");
 
                     echo '<a href="' . esc_url($url) . '">' . esc_html($types_caption) . '</a>';
                 } else {
-                    esc_html(\PublishPress_Statuses::__wp('All'));
+                    esc_html(__('All'));
                 }
 
                 echo '</div>';
@@ -934,7 +934,6 @@ do_action('publishpress_statuses_table_row', $key, []);
         $status_obj = $item;
 
         $url = admin_url("admin.php?action=edit-status&name={$status_obj->name}&page=publishpress-statuses");
-        $actions['edit'] =  ['url' => esc_url($url), 'label' => esc_html__('Edit')];
 
         $options = \PublishPress_Statuses::instance()->options;
 
@@ -947,7 +946,7 @@ do_action('publishpress_statuses_table_row', $key, []);
         }
 
         if ((empty($status_obj) || (empty($status_obj->_builtin))) && empty($status_obj->disabled)) {
-            $actions['disable'] = ['url' => '#', 'label' => \PublishPress_Statuses::__wp('Disable', 'publishpress-statuses')];
+            $actions['disable'] = ['url' => '#', 'label' => __('Disable', 'publishpress-statuses')];
         }
 
         if (empty($status_obj) || (empty($status_obj->_builtin) && empty($status_obj->pp_builtin))) {
