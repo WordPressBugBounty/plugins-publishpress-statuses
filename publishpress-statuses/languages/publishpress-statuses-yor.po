@@ -4,49 +4,45 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PublishPress Statuses Free 1.3.0-rc\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/project\n"
+"POT-Creation-Date: 2026-06-06T04:12:31+00:00\n"
+"PO-Revision-Date: 2026-04-30 14:54+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: yor\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-04-08T17:03:24+00:00\n"
-"PO-Revision-Date: 2026-04-20 20:06+0000\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: publishpress-statuses\n"
-"Language: yor\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: publishpress-statuses.php:3
 #. Plugin Name of the plugin
+#: publishpress-statuses.php:3
 msgid "PublishPress Statuses Free"
 msgstr "PublishPress Statuses Free"
 
-#: publishpress-statuses.php:4, fuzzy
 #. Plugin URI of the plugin
+#: publishpress-statuses.php:4
 msgid "https://publishpress.com/statuses"
 msgstr "https://publishpress.com/statuses"
 
-#: publishpress-statuses.php:5
 #. Description of the plugin
+#: publishpress-statuses.php:5
 msgid "Manage and create post statuses to customize your editorial workflow"
 msgstr "Ṣakoso ati ṣẹda ipo ifiweranṣẹ lati ṣe adani iṣan iṣẹ ọnà rẹ"
 
-#: publishpress-statuses.php:7
 #. Author of the plugin
+#: publishpress-statuses.php:7
 msgid "PublishPress"
 msgstr "PublishPress"
 
-#: publishpress-statuses.php:8, fuzzy
 #. Author URI of the plugin
+#: publishpress-statuses.php:8
 msgid "https://publishpress.com/"
 msgstr "https://publishpress.com/"
 
-#: Admin.php:18
-#: Admin.php:430
-#: Admin.php:431
-#: PublishPress_Statuses.php:429
-#: PublishPress_Statuses.php:430
-#: StatusesUI.php:92
+#: Admin.php:18 Admin.php:430 Admin.php:431 PublishPress_Statuses.php:435
+#: PublishPress_Statuses.php:436 StatusesUI.php:92
 msgid "Statuses"
 msgstr "Ipo"
 
@@ -54,13 +50,9 @@ msgstr "Ipo"
 msgid "Settings"
 msgstr "Eto"
 
-#: Admin.php:22
-#: includes-core/CoreAdmin.php:40
-#: includes-core/CoreAdmin.php:41
-#: includes-core/CoreAdmin.php:117
-#: includes-core/PromoBanner.php:225
-#: StatusListTable.php:224
-#: StatusListTable.php:250
+#: Admin.php:22 includes-core/CoreAdmin.php:40 includes-core/CoreAdmin.php:41
+#: includes-core/CoreAdmin.php:117 includes-core/PromoBanner.php:225
+#: StatusListTable.php:224 StatusListTable.php:250
 msgid "Upgrade to Pro"
 msgstr "Gba igbesoke si Pro"
 
@@ -69,57 +61,46 @@ msgid ""
 "Are you sure you want to delete the post status? All posts with this status "
 "will be assigned to the default status."
 msgstr ""
-"Ṣe o dajudaju pe o fẹ pa ipo ifiweranṣẹ? Gbogbo awọn ifiweranṣẹ pẹlu ipo "
-"yii yoo ti pin si ipo aiyipada."
+"Ṣe o dajudaju pe o fẹ pa ipo ifiweranṣẹ? Gbogbo awọn ifiweranṣẹ pẹlu ipo yii "
+"yoo ti pin si ipo aiyipada."
 
-#: Admin.php:441
-#: Admin.php:442
-#: StatusesUI.php:1156
+#: Admin.php:441 Admin.php:442 StatusesUI.php:1176
 msgid "Add New"
 msgstr "Fi kun Tuntun"
 
-#: Admin.php:528
-#: PublishPress_Statuses.php:894
+#: Admin.php:528 PublishPress_Statuses.php:906
 msgid "Approve"
 msgstr "Fọwọsi"
 
-#: Admin.php:530
-#: PublishPress_Statuses.php:864
+#: Admin.php:530 PublishPress_Statuses.php:876
 msgid "Assign"
 msgstr "Yàn"
 
-#: Admin.php:532
-#: PublishPress_Statuses.php:879
+#: Admin.php:532 PublishPress_Statuses.php:891
 msgid "Mark In Progress"
 msgstr "Samisi Ninu Ilọsiwaju"
 
-#: Admin.php:545
 #. translators: %s is the status label
+#: Admin.php:545
 #, php-format
 msgid "Set to %s"
 msgstr "Seto si %s"
 
-#: Admin.php:554
-#: PostEditGutenberg.php:81
-#: PostEditGutenberg.php:101
 #. translators: %s is the status label
+#: Admin.php:554 PostEditGutenberg.php:81 PostEditGutenberg.php:101
 #, php-format
 msgid "Save as %s"
 msgstr "Fipamọ bi %s"
 
-#: Admin.php:566
 #. translators: %s is the name of a custom public status
+#: Admin.php:566
 #, php-format
 msgid "Public (%s)"
 msgstr "Gbogbo eniyan (%s)"
 
-#: Admin.php:637
-#: PostEditClassic.php:179
-#: PostEditGutenberg.php:78
-#: PostEditGutenberg.php:286
-#: PostEditGutenbergStatuses.php:49
-#: PostEditGutenbergStatuses.php:69
-#: PostEditGutenbergStatuses.php:77
+#: Admin.php:637 PostEditClassic.php:179 PostEditGutenberg.php:78
+#: PostEditGutenberg.php:287 PostEditGutenbergStatuses.php:49
+#: PostEditGutenbergStatuses.php:69 PostEditGutenbergStatuses.php:77
 msgid "Advance Status"
 msgstr "Ilọsiwaju Ipo"
 
@@ -128,7 +109,9 @@ msgstr "Ilọsiwaju Ipo"
 msgid ""
 "You're using PublishPress Statuses Free. The Pro version has more features "
 "and support. %sUpgrade to Pro%s"
-msgstr "Iwọ nlo PublishPress Statuses Free. Ẹya Pro ni awọn ẹya diẹ sii ati atilẹyin. %sGba igbesoke si Pro%s"
+msgstr ""
+"Iwọ nlo PublishPress Statuses Free. Ẹya Pro ni awọn ẹya diẹ sii ati "
+"atilẹyin. %sGba igbesoke si Pro%s"
 
 #: includes-core/CoreAdmin.php:100
 msgid "Upgrade to Statuses Pro"
@@ -166,23 +149,19 @@ msgstr "Ìtẹ́lọ́run, atilẹyin ọjọgbọn"
 msgid "Need Statuses Support?"
 msgstr "Ṣe o nilo Atilẹyin Ipo?"
 
-#: includes-core/CoreAdmin.php:129
-#: includes-core/PromoBanner.php:68
+#: includes-core/CoreAdmin.php:129 includes-core/PromoBanner.php:68
 msgid "If you need help or have a new feature request, let us know."
 msgstr "Tí o bá nilo ìrànlọ́wọ́ tàbí ní ìbéèrè iṣẹ́ tuntun, jẹ́ kó jẹ́ wa mọ."
 
-#: includes-core/CoreAdmin.php:131
-#: includes-core/PromoBanner.php:241
+#: includes-core/CoreAdmin.php:131 includes-core/PromoBanner.php:241
 msgid "Request Support"
 msgstr "Beere Atilẹyin"
 
-#: includes-core/CoreAdmin.php:140
-#: includes-core/PromoBanner.php:248
+#: includes-core/CoreAdmin.php:140 includes-core/PromoBanner.php:248
 msgid "Detailed documentation is also available on the plugin website."
 msgstr "Àtẹjáde àlàyé pẹ̀lú wa lórí oju opo wẹẹbu àfikún náà."
 
-#: includes-core/CoreAdmin.php:142
-#: includes-core/PromoBanner.php:251
+#: includes-core/CoreAdmin.php:142 includes-core/PromoBanner.php:251
 msgid "View Knowledge Base"
 msgstr "Wo Ilé ìmọ̀"
 
@@ -190,15 +169,14 @@ msgstr "Wo Ilé ìmọ̀"
 msgid "Current Time"
 msgstr "Àkókò Tí ó Wà Ní lọwọlọwọ"
 
-#: PostEditClassic.php:242
-#: PostEditClassic.php:267
 #. translators: %s is a status name
+#: PostEditClassic.php:242 PostEditClassic.php:267
 #, php-format
 msgid "Submit as %s"
 msgstr "Fọwọ́sí gẹ́gẹ́ bí %s"
 
-#: PostEditClassic.php:328
 #. translators: %s is the name of a custom visibility status
+#: PostEditClassic.php:328
 #, fuzzy, php-format
 msgid "%s, Sticky"
 msgstr "%s, Sticky"
@@ -215,8 +193,8 @@ msgstr "Àtúnṣe ihuwasi aiyipada ti bọtini tẹ̀jáde"
 msgid "Bypass sequence"
 msgstr "Kó ìtòsọ́nà kọjá"
 
-#: PostEditClassicSubmitMetabox.php:437
 #. translators: %s is html markup
+#: PostEditClassicSubmitMetabox.php:437
 #, php-format
 msgid "Publish %1$s on approval %2$s"
 msgstr "Tẹ̀jáde %1$s lẹ́yìn ìmúṣẹ %2$s"
@@ -253,8 +231,13 @@ msgstr "Iwọn yii ti wa ni ikede lọwọlọwọ"
 msgid "This post is currently scheduled"
 msgstr "Iwọn yii ti wa ni eto lọwọlọwọ"
 
-#: PostEditGutenbergStatuses.php:160
-#: StatusesUI.php:1321
+#: PostEditGutenberg.php:283
+#, fuzzy
+#| msgid "Save as %s"
+msgid "Save Draft"
+msgstr "Fipamọ bi %s"
+
+#: PostEditGutenbergStatuses.php:160 StatusesUI.php:1341
 msgid "Workflow"
 msgstr "Ilana Iṣẹ"
 
@@ -262,8 +245,8 @@ msgstr "Ilana Iṣẹ"
 msgid "Submit Revision"
 msgstr "Fi Atunṣe silẹ"
 
-#: publishpress-module/ModuleAdminUI_Base.php:101
 #. translators: %1$s is the plugin name, %2$s is the rating stars
+#: publishpress-module/ModuleAdminUI_Base.php:101
 #, php-format
 msgid "If you like %1$s, please leave us a %2$s rating. Thank you!"
 msgstr "Ti o ba fẹ %1$s, jọwọ fi wa a %2$s iye. O ṣeun!"
@@ -298,31 +281,37 @@ msgstr "Kan si"
 msgid "<strong>This plugin can be deleted.</strong>"
 msgstr "<strong>Ẹya yii le jẹ piparẹ.</strong>"
 
+#. translators: %s is a version number
 #: publishpress-statuses.php:196
-#. translators: %s is a version number
 #, php-format
 msgid ""
-"To use PublishPress Statuses, please upgrade PublishPress Planner to "
-"version %s or higher."
-msgstr "Lati lo Ipo PublishPress, jọwọ ṣe imudojuiwọn PublishPress Planner si ẹya %s tabi ga julọ."
+"To use PublishPress Statuses, please upgrade PublishPress Planner to version "
+"%s or higher."
+msgstr ""
+"Lati lo Ipo PublishPress, jọwọ ṣe imudojuiwọn PublishPress Planner si ẹya %s "
+"tabi ga julọ."
 
+#. translators: %s is a version number
 #: publishpress-statuses.php:213
-#. translators: %s is a version number
 #, php-format
 msgid ""
-"To use PublishPress Statuses, please upgrade PublishPress Permissions Pro "
-"to version %s or higher."
-msgstr "Lati lo Ipo PublishPress, jọwọ ṣe imudojuiwọn PublishPress Permissions Pro si ẹya %s tabi ga julọ."
+"To use PublishPress Statuses, please upgrade PublishPress Permissions Pro to "
+"version %s or higher."
+msgstr ""
+"Lati lo Ipo PublishPress, jọwọ ṣe imudojuiwọn PublishPress Permissions Pro "
+"si ẹya %s tabi ga julọ."
 
-#: publishpress-statuses.php:230
 #. translators: %s is a version number
+#: publishpress-statuses.php:230
 #, php-format
 msgid ""
 "To use PublishPress Statuses, please upgrade PublishPress Capabilities Pro "
 "to version %s or higher."
-msgstr "Lati lo Ipo PublishPress, jọwọ ṣe imudojuiwọn PublishPress Capabilities Pro si ẹya %s tabi ga julọ."
+msgstr ""
+"Lati lo Ipo PublishPress, jọwọ ṣe imudojuiwọn PublishPress Capabilities Pro "
+"si ẹya %s tabi ga julọ."
 
-#: PublishPress_Statuses.php:391
+#: PublishPress_Statuses.php:397
 msgid ""
 "Can bypass normal status progression. User can publish immediately or move "
 "post to the furthest possible status."
@@ -330,163 +319,168 @@ msgstr ""
 "Le yọ kuro ni ilọsiwaju ipo deede. Olumulo le ṣe ikede lẹsẹkẹsẹ tabi gbe "
 "ifiweranṣẹ si ipo ti o jinna julọ."
 
-#: PublishPress_Statuses.php:392
+#: PublishPress_Statuses.php:398
 msgid "Manage Statuses plugin settings."
 msgstr "Ṣakoso awọn eto afikun Statuses."
 
-#: PublishPress_Statuses.php:397
+#: PublishPress_Statuses.php:403
 msgid "Can unpublish posts even if Visibility Status is locked."
 msgstr "Le yọ awọn ifiweranṣẹ silẹ paapaa ti Ipo Afihan ba ti di."
 
-#: PublishPress_Statuses.php:430
+#: PublishPress_Statuses.php:436
 msgid "Status"
 msgstr "Ipo"
 
-#: PublishPress_Statuses.php:444
+#: PublishPress_Statuses.php:450
 msgid "Core Post Statuses"
 msgstr "Ipo Ifiweranṣẹ Core"
 
-#: PublishPress_Statuses.php:707
+#: PublishPress_Statuses.php:719
 msgid "New post, not yet submitted."
 msgstr "Ifiweranṣẹ tuntun, ko ti fi silẹ sibẹsibẹ."
 
-#: PublishPress_Statuses.php:729
+#: PublishPress_Statuses.php:741
 msgid "Post is awaiting review."
 msgstr "Ifiweranṣẹ n duro de atunyẹwo."
 
-#: PublishPress_Statuses.php:749
+#: PublishPress_Statuses.php:761
 msgid "Post is scheduled for publication."
 msgstr "Ifiweranṣẹ ti ṣeto fun atẹjade."
 
-#: PublishPress_Statuses.php:768
+#: PublishPress_Statuses.php:780
 msgid "Post is published, publicly visible."
 msgstr "Ifiweranṣẹ ti tẹjade, ti o han gbangba."
 
-#: PublishPress_Statuses.php:787
+#: PublishPress_Statuses.php:799
 msgid "Post is published with private visibility."
 msgstr "Ifiweranṣẹ ti tẹjade pẹlu afihan ikọkọ."
 
-#: PublishPress_Statuses.php:847
+#: PublishPress_Statuses.php:859
 msgid "Pitch"
 msgstr "Igbimọ"
 
-#: PublishPress_Statuses.php:850
+#: PublishPress_Statuses.php:861
+msgctxt "post action/button label"
+msgid "Pitch"
+msgstr "Titaja"
+
+#: PublishPress_Statuses.php:862
 msgid "Idea proposed; waiting for acceptance."
 msgstr "Ero ti a dabaa; n duro de gbigba."
 
-#: PublishPress_Statuses.php:862
+#: PublishPress_Statuses.php:874
 msgid "Assigned"
 msgstr "Ti yan"
 
-#: PublishPress_Statuses.php:865
+#: PublishPress_Statuses.php:877
 msgid "Post idea assigned to writer."
 msgstr "Ero ifiweranṣẹ ti yan si onkọwe."
 
-#: PublishPress_Statuses.php:877
+#: PublishPress_Statuses.php:889
 msgid "In Progress"
 msgstr "Ninu Ilana"
 
-#: PublishPress_Statuses.php:880
+#: PublishPress_Statuses.php:892
 msgid "Writer is working on the post."
 msgstr "Onkọwe n ṣiṣẹ lori ifiweranṣẹ naa."
 
-#: PublishPress_Statuses.php:892
+#: PublishPress_Statuses.php:904
 msgid "Approved"
 msgstr "Ti fọwọsi"
 
-#: PublishPress_Statuses.php:895
+#: PublishPress_Statuses.php:907
 msgid "Post has been approved for publication."
 msgstr "Ifiweranṣẹ ti fọwọsi fun atẹjade."
 
-#: PublishPress_Statuses.php:907
+#: PublishPress_Statuses.php:919
 msgid "Needs Work"
 msgstr "Nṣiṣẹ"
 
-#: PublishPress_Statuses.php:909
+#: PublishPress_Statuses.php:921
 msgid "Set to Needs Work"
 msgstr "Ṣeto si Nṣiṣẹ"
 
-#: PublishPress_Statuses.php:910
+#: PublishPress_Statuses.php:922
 msgid "Post needs work before further review."
 msgstr "Ifiweranṣẹ nilo iṣẹ ṣaaju ki a to ṣe ayẹwo siwaju."
 
-#: PublishPress_Statuses.php:922
+#: PublishPress_Statuses.php:934
 msgid "Rejected"
 msgstr "Kọ"
 
-#: PublishPress_Statuses.php:924
+#: PublishPress_Statuses.php:936
 msgid "Reject"
 msgstr "Kọ"
 
-#: PublishPress_Statuses.php:925
+#: PublishPress_Statuses.php:937
 msgid "Post has been rejected."
 msgstr "Ifiweranṣẹ ti kọ."
 
-#: PublishPress_Statuses.php:959
+#: PublishPress_Statuses.php:971
 msgid "Alternate Pre-Publication Workflow:"
 msgstr "Ilana Iṣẹ Ọna-Ìtẹjade Atilẹyin:"
 
-#: PublishPress_Statuses.php:1054
+#: PublishPress_Statuses.php:1066
 msgid "Disabled Statuses:"
 msgstr "Ipo ti a Dena:"
 
-#: PublishPress_Statuses.php:1070
+#: PublishPress_Statuses.php:1082
 msgid "Deferred"
 msgstr "Ti dawọ duro"
 
-#: PublishPress_Statuses.php:1072
+#: PublishPress_Statuses.php:1084
 msgid "Defer"
 msgstr "Dawọ duro"
 
-#: PublishPress_Statuses.php:1073
+#: PublishPress_Statuses.php:1085
 msgid "Post has been deferred for future consideration."
 msgstr "Ifiweranṣẹ ti dawọ duro fun akiyesi ọjọ iwaju."
 
-#: PublishPress_Statuses.php:1085
+#: PublishPress_Statuses.php:1097
 msgid "Committee"
 msgstr "Igbimọ"
 
-#: PublishPress_Statuses.php:1087
+#: PublishPress_Statuses.php:1099
 msgid "Refer to Committee"
 msgstr "Tọka si Igbimọ"
 
-#: PublishPress_Statuses.php:1088
+#: PublishPress_Statuses.php:1100
 msgid "Post has been referred to committee."
 msgstr "Ifiweranṣẹ ti tọka si igbimọ."
 
-#: PublishPress_Statuses.php:1101
+#: PublishPress_Statuses.php:1113
 msgid "Committee Review"
 msgstr "Ayẹwo Igbimọ"
 
-#: PublishPress_Statuses.php:1103
+#: PublishPress_Statuses.php:1115
 msgid "Set to Committee Review"
 msgstr "Ṣeto si Ayẹwo Igbimọ"
 
-#: PublishPress_Statuses.php:1104
+#: PublishPress_Statuses.php:1116
 msgid "Committee is reviewing the post."
 msgstr "Igbimọ n ṣe ayẹwo ifiweranṣẹ naa."
 
-#: PublishPress_Statuses.php:1117
+#: PublishPress_Statuses.php:1129
 msgid "Committee Progress"
 msgstr "Ilọsiwaju Igbimọ"
 
-#: PublishPress_Statuses.php:1119
+#: PublishPress_Statuses.php:1131
 msgid "Set to Committee Progress"
 msgstr "Ṣeto si Ilọsiwaju Igbimọ"
 
-#: PublishPress_Statuses.php:1120
+#: PublishPress_Statuses.php:1132
 msgid "Committee is editing the post."
 msgstr "Igbimọ n ṣe atunṣe ifiweranṣẹ naa."
 
-#: PublishPress_Statuses.php:1133
+#: PublishPress_Statuses.php:1145
 msgid "Committee Approved"
 msgstr "Igbimọ Ti Fọwọsi"
 
-#: PublishPress_Statuses.php:1135
+#: PublishPress_Statuses.php:1147
 msgid "Set Committee Approval"
 msgstr "Ṣeto Fọwọsi Igbimọ"
 
-#: PublishPress_Statuses.php:1136
+#: PublishPress_Statuses.php:1148
 msgid "Committee has approved the post."
 msgstr "Igbimọ ti fọwọsi ifiweranṣẹ naa."
 
@@ -494,20 +488,15 @@ msgstr "Igbimọ ti fọwọsi ifiweranṣẹ naa."
 msgid "Add New Status"
 msgstr "Ṣafikun Ipo Tuntun"
 
-#: StatusEditUI.php:41
-#: StatusEditUI.php:50
-#: StatusListTable.php:946
+#: StatusEditUI.php:41 StatusEditUI.php:50 StatusListTable.php:945
 msgid "Labels"
 msgstr "Aami"
 
-#: StatusEditUI.php:56
-#: StatusEditUI.php:414
-#: StatusListTable.php:171
+#: StatusEditUI.php:56 StatusEditUI.php:414 StatusListTable.php:171
 msgid "Post Types"
 msgstr "Iru Ifiweranṣẹ"
 
-#: StatusEditUI.php:64
-#: StatusListTable.php:170
+#: StatusEditUI.php:64 StatusListTable.php:170
 msgid "Roles"
 msgstr "Iṣẹ"
 
@@ -535,6 +524,10 @@ msgstr ""
 msgid "Update Status"
 msgstr "Imudojuiwọn Ipo"
 
+#: StatusEditUI.php:281
+msgid "Slug"
+msgstr ""
+
 #: StatusEditUI.php:293
 msgid "The slug is the unique ID for the status."
 msgstr "Slug naa jẹ ID alailẹgbẹ fun ipo naa."
@@ -547,8 +540,7 @@ msgstr "Awọ"
 msgid "The color is used to identify the status."
 msgstr "Awọ naa ni a lo lati ṣe idanimọ ipo naa."
 
-#: StatusEditUI.php:321
-#: StatusListTable.php:169
+#: StatusEditUI.php:321 StatusListTable.php:169
 msgid "Icon"
 msgstr "Aami"
 
@@ -582,7 +574,9 @@ msgstr "Ṣe ilọsiwaju lati yan ẹniti o le ṣakoso awọn ifiweranṣẹ ni
 
 #: StatusEditUI.php:507
 msgid "Get PublishPress Statuses Pro for status-specific post access control."
-msgstr "Gba PublishPress Statuses Pro fun iṣakoso iraye si ifiweranṣẹ ti o ni ibatan si ipo."
+msgstr ""
+"Gba PublishPress Statuses Pro fun iṣakoso iraye si ifiweranṣẹ ti o ni ibatan "
+"si ipo."
 
 #: StatusEditUI.php:513
 msgid "Control which roles can assign a status"
@@ -602,40 +596,50 @@ msgstr "Ṣeto awọn agbara ni iyatọ fun ọkọọkan iru ifiweranṣẹ"
 msgid "User-friendly checkbox grid to assign capabilities"
 msgstr "Ipele àtúnṣe ti o rọrun fun awọn agbara"
 
-#: StatusEditUI.php:531
-#: StatusListTable.php:674
+#: StatusEditUI.php:531 StatusListTable.php:674
 msgid "Get PublishPress Statuses Pro"
 msgstr "Gba PublishPress Statuses Pro"
 
-#: StatusEditUI.php:536
-#: StatusListTable.php:229
-#: StatusListTable.php:246
+#: StatusEditUI.php:536 StatusListTable.php:229 StatusListTable.php:246
 #: StatusListTable.php:679
 msgid "Learn More"
 msgstr "Kọ ẹkọ diẹ sii"
 
-#: StatusEditUI.php:545
-#, php-format
+#: StatusEditUI.php:544
 msgid ""
-"Status-specific post capabilities are %1$scurrently disabled%2$s. You can "
-"%3$schange this setting%4$s."
+"Post Access for this status cannot be customized until status-specific "
+"capability requirements are enabled."
 msgstr ""
-"Awọn agbara ifiweranṣẹ ti o ni ibatan si ipo jẹ %1$siwọn lọwọlọwọ ti a "
-"ge%2$s. O le %3$syipada eto yii%4$s."
 
-#: StatusEditUI.php:565
+#: StatusEditUI.php:550
+#, fuzzy
+#| msgid "Status Availability"
+msgid "Status Capabilities"
+msgstr "Availability Ipo"
+
+#: StatusEditUI.php:556
+#, fuzzy
+#| msgid ""
+#| "Posts with custom Visibility also require status-specific capabilities "
+#| "for editing"
+msgid "Require status-specific capabilities for post editing, deletion"
+msgstr ""
+"Awọn ifiweranṣẹ pẹlu Fifi hàn ti a ṣe adani tun nilo awọn agbara pato ipo "
+"fun ṣiṣatunkọ"
+
+#: StatusEditUI.php:574
 msgid "Status Label"
 msgstr "Aami Ipo"
 
-#: StatusEditUI.php:578
+#: StatusEditUI.php:587
 msgid "The name is used to identify the status. (Max: 20 characters)"
 msgstr "Orukọ naa ni a lo lati ṣe idanimọ ipo naa. (Max: 20 awọn ohun kikọ)"
 
-#: StatusEditUI.php:588
+#: StatusEditUI.php:597 StatusListTable.php:172
 msgid "Description"
 msgstr "Apejuwe"
 
-#: StatusEditUI.php:600
+#: StatusEditUI.php:609
 msgid ""
 "The description is primarily for administrative use, to give you some "
 "context on what the custom status is to be used for."
@@ -643,28 +647,28 @@ msgstr ""
 "Apejuwe naa jẹ pataki fun lilo iṣakoso, lati fun ọ ni diẹ ninu awọn alaye "
 "lori ohun ti ipo aṣa yoo jẹ lo fun."
 
-#: StatusEditUI.php:612
+#: StatusEditUI.php:622
 msgid "Save As Label"
 msgstr "Fipamọ Gẹgẹbi Aami"
 
-#: StatusEditUI.php:620
+#: StatusEditUI.php:630
 msgid "Submit Button Label"
 msgstr "Aami Bọtini Firanṣẹ"
 
-#: StatusesUI.php:64
 #. translators: %s is the status label
+#: StatusesUI.php:64
 #, php-format
 msgid "Edit Post Status: %s"
 msgstr "Ṣatunkọ Ipo Ifiweranṣẹ: %s"
 
-#: StatusesUI.php:67
 #. translators: %s is the status label
+#: StatusesUI.php:67
 #, php-format
 msgid "%s Status - Edit"
 msgstr "%s Ipo - Ṣatunkọ"
 
-#: StatusesUI.php:75
 #. translators: %s is status type: "Workflow", "Visibility", "Revision", etc.
+#: StatusesUI.php:75
 #, php-format
 msgid "Add %s Status"
 msgstr "Fi %s Ipo kun"
@@ -677,8 +681,7 @@ msgstr "Fi Ipo Ifiweranṣẹ kun"
 msgid "Add Status"
 msgstr "Fi Ipo kun"
 
-#: StatusesUI.php:87
-#: StatusesUI.php:1297
+#: StatusesUI.php:87 StatusesUI.php:1317
 msgid "PublishPress Statuses Settings"
 msgstr "Awọn Eto PublishPress Statuses"
 
@@ -698,9 +701,8 @@ msgstr "Ipo Wiwo"
 msgid "Post status created. Select a tab for further configuration."
 msgstr "Ipo ifiweranṣẹ ti ṣẹda. Yan taabu fun iṣeto siwaju."
 
-#: StatusesUI.php:219
-#: StatusesUI.php:224
 #. translators: %1$s is the status name, %2$s is the edit link
+#: StatusesUI.php:219 StatusesUI.php:224
 #, php-format
 msgid "Post status %1$s updated. %2$s"
 msgstr "Ipo ifiweranṣẹ %1$s ti ṣe imudojuiwọn. %2$s"
@@ -713,7 +715,8 @@ msgstr "Awọn eto ti ṣe imudojuiwọn"
 msgid ""
 "That post status doesn't seem to exist. Was a required plugin or setting "
 "deactivated?"
-msgstr "Ipo ifiweranṣẹ yẹn ko dabi ẹnipe o wa. Njẹ a ti pa plugini tabi eto to nilo?"
+msgstr ""
+"Ipo ifiweranṣẹ yẹn ko dabi ẹnipe o wa. Njẹ a ti pa plugini tabi eto to nilo?"
 
 #: StatusesUI.php:222
 msgid "Default post status has been changed."
@@ -723,8 +726,7 @@ msgstr "Ipo ifiweranṣẹ aiyipada ti yipada."
 msgid "Post status deleted."
 msgstr "Ipo ifiweranṣẹ ti pa."
 
-#: StatusesUI.php:226
-#: StatusHandler.php:828
+#: StatusesUI.php:226 StatusHandler.php:869
 msgid "Status order updated."
 msgstr "Ibere ipo ti ṣe imudojuiwọn."
 
@@ -739,6 +741,10 @@ msgstr "Itọsọna Iṣẹ-ṣiṣe:"
 #: StatusesUI.php:268
 msgid "Manual Status Selection:"
 msgstr "Yiyan Ipo Ni ọwọ:"
+
+#: StatusesUI.php:277
+msgid "New Status Position:"
+msgstr ""
 
 #: StatusesUI.php:287
 msgid "Custom Visibility:"
@@ -789,10 +795,11 @@ msgid "Include custom statuses in Add New pop-up on Calendar"
 msgstr "Fikun un awọn ipo aṣa ni Fọwọ́si Tuntun tó wà lórí Kálẹ́ńdà"
 
 #: StatusesUI.php:465
-msgid "Hide status selection dropdown from non-Administrators in Gutenberg editor"
+msgid ""
+"Hide status selection dropdown from non-Administrators in Gutenberg editor"
 msgstr ""
-"Tẹ̀jú ẹ̀ka yiyan ipo kúrò ní inú àkójọpọ̀ láti ọdọ àwọn ti kii ṣe Alákóso "
-"nínú olùkọ́ Gutenberg"
+"Tẹ̀jú ẹ̀ka yiyan ipo kúrò ní inú àkójọpọ̀ láti ọdọ àwọn ti kii ṣe Alákóso nínú "
+"olùkọ́ Gutenberg"
 
 #: StatusesUI.php:492
 msgid "Sequence by default: Publish button defaults to next status in workflow"
@@ -806,7 +813,7 @@ msgstr "Ìbáṣepọ̀ ní aiyé: Bọtini Ìtẹ̀jáde jẹ́ àkọsílẹ a
 msgid "No workflow guidance"
 msgstr "Kò sí ìtọ́sọ́na iṣẹ́"
 
-#: StatusesUI.php:570
+#: StatusesUI.php:565
 msgid ""
 "Hide sub-statuses in the dropdown unless the post is set to the parent "
 "status or a sibling"
@@ -814,7 +821,7 @@ msgstr ""
 "Pa awọn ipo kekere mọ ni akojọ aṣayan ayẹwo ayafi ti ifiweranṣẹ ba ṣeto si "
 "ipo obi tabi alabaṣiṣẹpọ"
 
-#: StatusesUI.php:576
+#: StatusesUI.php:571
 msgid ""
 "Sub-statuses may be nested below any top-level status. They function as "
 "branches in the Main Workflow or in an Alternate Workflow."
@@ -822,15 +829,19 @@ msgstr ""
 "Awọn ipo kekere le wa ni ikọkọ ni isalẹ eyikeyi ipo ipele oke. Wọn ṣiṣẹ bi "
 "ẹka ni Ilana Aaye Pataki tabi ni Ilana Aaye Yatọ."
 
-#: StatusesUI.php:607
+#: StatusesUI.php:608
+msgid "Add new statuses to Main Workflow by default"
+msgstr ""
+
+#: StatusesUI.php:627
 msgid "Available to all users"
 msgstr "Wà fún gbogbo àwọn olumulo"
 
-#: StatusesUI.php:608
+#: StatusesUI.php:628
 msgid "Available to specified roles only"
 msgstr "Wà fún àwọn ipa tó ṣàkóso nìkan"
 
-#: StatusesUI.php:614
+#: StatusesUI.php:634
 msgid ""
 "Users can only assign a custom status to a post if their role allows it. "
 "With the current setting, the same control is applied to the Pending Review "
@@ -839,7 +850,7 @@ msgstr ""
 "Àwọn olumulo lè fi ipo aṣa kan sí ìfikún nìkan tí ipa wọn bá jẹ́ kí o ṣe. "
 "Pẹ̀lú àtọ́ka tó wa, iṣakoso kanna ni a lo sí ipo Àwọn Nibẹ̀nà."
 
-#: StatusesUI.php:616
+#: StatusesUI.php:636
 msgid ""
 "Users can only assign a custom status to a post if their role allows it. "
 "With the current setting, those limitations will not be applied for the "
@@ -848,41 +859,42 @@ msgstr ""
 "Àwọn olumulo lè fi ipo aṣa kan sí ìfikún nìkan tí ipa wọn bá jẹ́ kí o ṣe. "
 "Pẹ̀lú àtọ́ka tó wa, àwọn ìdíyelé yìí kì yóò wáyé fún ipo Àwọn Nibẹ̀nà."
 
-#: StatusesUI.php:625
 #. translators: %1$s and %2$s are link markup
+#: StatusesUI.php:645
 #, php-format
-msgid "View or set roles at %1$s Statuses > Statuses > Pending Review > Roles %2$s"
+msgid ""
+"View or set roles at %1$s Statuses > Statuses > Pending Review > Roles %2$s"
 msgstr "Wo tàbí ṣètò àwọn ipa ní %1$s Ipo > Ipo > Àwọn Nibẹ̀nà > Awọn ipa %2$s"
 
-#: StatusesUI.php:649
+#: StatusesUI.php:669
 msgid "Automatic Detection"
 msgstr "Ìtẹ̀wọ́gbà Àkópọ̀"
 
-#: StatusesUI.php:650
+#: StatusesUI.php:670
 msgid "Using Classic Editor"
 msgstr "Lilo Olùkọ́ Igbàlódé"
 
-#: StatusesUI.php:651
+#: StatusesUI.php:671
 msgid "Using Gutenberg Editor"
 msgstr "Lilo Olùkọ́ Gutenberg"
 
-#: StatusesUI.php:656
+#: StatusesUI.php:676
 msgid ""
 "If custom statuses in the post editor are not loaded correctly, prevent "
 "incorrect detection of editor by specifying it here."
 msgstr ""
-"Tí àwọn ipo aṣa nínú olùkọ́ ìfikún náà kò bá kọ́ sẹ́sẹ́, dáàbò bo "
-"ìtẹ̀wọ́gbà olùkọ́ láti ṣàpèjúwe rẹ níbí."
+"Tí àwọn ipo aṣa nínú olùkọ́ ìfikún náà kò bá kọ́ sẹ́sẹ́, dáàbò bo ìtẹ̀wọ́gbà olùkọ́ "
+"láti ṣàpèjúwe rẹ níbí."
 
-#: StatusesUI.php:677
+#: StatusesUI.php:697
 msgid "For all plugin statuses"
 msgstr "Fún gbogbo ipo plugin"
 
-#: StatusesUI.php:678
+#: StatusesUI.php:698
 msgid "For user-created plugin statuses only"
 msgstr "Fun awọn ipo afikun ti olumulo ṣẹda nikan"
 
-#: StatusesUI.php:683
+#: StatusesUI.php:703
 msgid ""
 "This controls which statuses can have their labels customized by editing "
 "Status properties. If a non-default entry is stored, it will override any "
@@ -892,8 +904,8 @@ msgstr ""
 "ṣiṣatunkọ Awọn ohun-ini Ipo. Ti a ba fipamọ ohun elo ti kii ṣe aiyipada, o "
 "yoo bori eyikeyi awọn okun faili ede."
 
-#: StatusesUI.php:737
 #. translators: %1$s is the post type name, %2$s is the pp_custom_statuses feature
+#: StatusesUI.php:757
 #, php-format
 msgid ""
 "Disabled because add_post_type_support('%1$s', '%2$s') is included in a "
@@ -902,15 +914,15 @@ msgstr ""
 "Ti wa ni pipade nitori add_post_type_support('%1$s', '%2$s') ti wa ni pẹlu "
 "ninu faili ti a gba laaye."
 
-#: StatusesUI.php:746
+#: StatusesUI.php:766
 msgid "Note: Post types can also be specified for each individual status."
 msgstr "Akíyèsí: Awọn iru ifiweranṣẹ tun le jẹ ẹni kọọkan fun ipo kọọkan."
 
-#: StatusesUI.php:771
+#: StatusesUI.php:791
 msgid "Enable custom Visibility Statuses"
 msgstr "Mú awọn ipo Fifi hàn ti a ṣe adani ṣiṣẹ"
 
-#: StatusesUI.php:796
+#: StatusesUI.php:816
 msgid ""
 "Posts with custom Visibility also require status-specific capabilities for "
 "editing"
@@ -918,11 +930,11 @@ msgstr ""
 "Awọn ifiweranṣẹ pẹlu Fifi hàn ti a ṣe adani tun nilo awọn agbara pato ipo "
 "fun ṣiṣatunkọ"
 
-#: StatusesUI.php:877
+#: StatusesUI.php:897
 msgid "lock"
 msgstr "di"
 
-#: StatusesUI.php:903
+#: StatusesUI.php:923
 msgid ""
 "If the Published visibility status is locked, also prevent posts from being "
 "unpublished."
@@ -930,12 +942,13 @@ msgstr ""
 "Ti ipo fifi hàn ti a tẹjade ba ti di, tun ṣe idiwọ awọn ifiweranṣẹ lati di "
 "atẹjade."
 
-#: StatusesUI.php:910
+#: StatusesUI.php:930
 #, php-format
 msgid "If enabled, users need the %s to unpublish a post."
-msgstr "Ti a ba mu ṣiṣẹ, awọn olumulo nilo %s lati yọ ifiweranṣẹ kuro ni atẹjade."
+msgstr ""
+"Ti a ba mu ṣiṣẹ, awọn olumulo nilo %s lati yọ ifiweranṣẹ kuro ni atẹjade."
 
-#: StatusesUI.php:914
+#: StatusesUI.php:934
 msgid ""
 "If enabled, users will need an additional role capability to unpublish a "
 "post."
@@ -943,177 +956,192 @@ msgstr ""
 "Ti a ba mu ṣiṣẹ, awọn olumulo yoo nilo agbara ipa afikun lati yọ ifiweranṣẹ "
 "kuro ni atẹjade."
 
-#: StatusesUI.php:931
-#: StatusesUI.php:989
+#: StatusesUI.php:951 StatusesUI.php:1009
 msgid "Select..."
 msgstr "Yan..."
 
-#: StatusesUI.php:934
+#: StatusesUI.php:954
 msgid "Re-run Planner import (with Status Control properties, ordering)"
 msgstr "Tun ṣiṣe gbigbe wọle Planner (pẹlu awọn ohun-ini Iṣakoso Ipo, iṣọkan)"
 
-#: StatusesUI.php:935
+#: StatusesUI.php:955
 msgid "Re-run Planner import (ignoring Status Control configuration)"
 msgstr "Tun ṣiṣe gbigbe wọle Planner (foju kọ iṣeto Iṣakoso Ipo)"
 
-#: StatusesUI.php:937
+#: StatusesUI.php:957
 msgid "Re-run Planner import"
 msgstr "Tun ṣiṣe gbigbe wọle Planner"
 
-#: StatusesUI.php:943
+#: StatusesUI.php:963
 msgid ""
 "Status color, icon and position is automatically imported from PublishPress "
 "Planner. Select an option above to re-run the import, giving priority to "
 "Planner-defined status position."
-msgstr "Awọ ipo, aami ati ipo ni a gbe wọle laifọwọyi lati PublishPress Planner. Yan aṣayan loke lati tun ṣe gbigbe wọle, fifun ni pataki si ipo ipo ti Planner ti ṣalaye."
+msgstr ""
+"Awọ ipo, aami ati ipo ni a gbe wọle laifọwọyi lati PublishPress Planner. Yan "
+"aṣayan loke lati tun ṣe gbigbe wọle, fifun ni pataki si ipo ipo ti Planner "
+"ti ṣalaye."
 
-#: StatusesUI.php:991
+#: StatusesUI.php:1011
 msgid "Back up current colors, icons, labels and post types"
-msgstr "Ṣe afẹyinti awọn awọ, awọn aami, awọn aami ati awọn iru ifiweranṣẹ lọwọlọwọ"
+msgstr ""
+"Ṣe afẹyinti awọn awọ, awọn aami, awọn aami ati awọn iru ifiweranṣẹ lọwọlọwọ"
 
-#: StatusesUI.php:996
+#: StatusesUI.php:1016
 msgid "Restore backup of status colors"
 msgstr "Mú afẹyinti awọn awọ ipo pada"
 
-#: StatusesUI.php:1000
+#: StatusesUI.php:1020
 msgid "Restore backup of status icons"
 msgstr "Mú afẹyinti awọn aami ipo pada"
 
-#: StatusesUI.php:1004
+#: StatusesUI.php:1024
 msgid "Restore backup of status labels"
 msgstr "Mú afẹyinti awọn aami ipo pada"
 
-#: StatusesUI.php:1008
+#: StatusesUI.php:1028
 msgid "Restore backup of status post types"
 msgstr "Mú afẹyinti awọn iru ifiweranṣẹ ipo pada"
 
-#: StatusesUI.php:1014
+#: StatusesUI.php:1034
 msgid "Restore auto-backup of status colors"
 msgstr "Tun pada afẹyinti aifọwọyi ti awọn awọ ipo"
 
-#: StatusesUI.php:1018
+#: StatusesUI.php:1038
 msgid "Restore auto-backup of status icons"
 msgstr "Tun pada afẹyinti aifọwọyi ti awọn aami ipo"
 
-#: StatusesUI.php:1022
+#: StatusesUI.php:1042
 msgid "Restore auto-backup of status labels"
 msgstr "Tun pada afẹyinti aifọwọyi ti awọn lẹta ipo"
 
-#: StatusesUI.php:1026
+#: StatusesUI.php:1046
 msgid "Restore auto-backup of status post types"
 msgstr "Tun pada afẹyinti aifọwọyi ti awọn iru ifiweranṣẹ ipo"
 
-#: StatusesUI.php:1033
+#: StatusesUI.php:1053
 msgid "Use default status colors"
 msgstr "Lo awọn awọ ipo aiyipada"
 
-#: StatusesUI.php:1037
+#: StatusesUI.php:1057
 msgid "Use default status icons"
 msgstr "Lo awọn aami ipo aiyipada"
 
-#: StatusesUI.php:1041
+#: StatusesUI.php:1061
 msgid "Use default status labels"
 msgstr "Lo awọn lẹta ipo aiyipada"
 
-#: StatusesUI.php:1045
+#: StatusesUI.php:1065
 msgid "Use default status post types"
 msgstr "Lo awọn iru ifiweranṣẹ ipo aiyipada"
 
-#: StatusesUI.php:1049
+#: StatusesUI.php:1069
 msgid "Use Planner plugin's default status colors"
 msgstr "Lo awọn awọ ipo aiyipada ti ohun itanna Planner"
 
-#: StatusesUI.php:1053
+#: StatusesUI.php:1073
 msgid "Use Planner plugin's default status icons"
 msgstr "Lo awọn aami ipo aiyipada ti ohun itanna Planner"
 
-#: StatusesUI.php:1092
 #. translators: %s is the status name
+#: StatusesUI.php:1112
 #, php-format
 msgid "Edit Status: %s"
 msgstr "Ṣatunkọ Ipo: %s"
 
-#: StatusesUI.php:1095
 #. translators: %s is the status name
+#: StatusesUI.php:1115
 #, php-format
 msgid "Edit %1$s: %2$s"
 msgstr "Ṣatunkọ %1$s: %2$s"
 
-#: StatusesUI.php:1115
 #. translators: %s is the status name
+#: StatusesUI.php:1135
 #, php-format
 msgid "Edit Status Labels: %s"
 msgstr "Ṣatunkọ Awọn aami Ipo: %s"
 
-#: StatusesUI.php:1118
 #. translators: %s is the status name
+#: StatusesUI.php:1138
 #, php-format
 msgid "Edit %1$s Labels: %2$s"
 msgstr "Ṣatunkọ Awọn aami %1$s: %2$s"
 
-#: StatusesUI.php:1155
-#: StatusesUI.php:1283
+#: StatusesUI.php:1175 StatusesUI.php:1303
 msgid "Add New Pre-Publication Status"
 msgstr "Fi Ipo Tuntun Pre-Publication kun"
 
-#: StatusesUI.php:1171
 #. translators: %1$s and %2$s is link markup
+#: StatusesUI.php:1191
 #, php-format
 msgid ""
-"For custom Visibility Statuses, %1$supgrade to PublishPress Statuses "
-"Pro%2$s."
-msgstr "Fun awọn ipo Wiwo aṣa, %1$s ṣe imudojuiwọn si PublishPress Statuses Pro %2$s."
+"For custom Visibility Statuses, %1$supgrade to PublishPress Statuses Pro%2$s."
+msgstr ""
+"Fun awọn ipo Wiwo aṣa, %1$s ṣe imudojuiwọn si PublishPress Statuses Pro %2$s."
 
-#: StatusesUI.php:1185
 #. translators: %1$s and %2$s is link markup
+#: StatusesUI.php:1205
 #, php-format
 msgid "Note: Custom Visibility Statuses are %1$sdisabled%2$s."
 msgstr "Akiyesi: Awọn ipo Wiwo aṣa ni %1$s ti wa ni pipade %2$s."
 
-#: StatusesUI.php:1208, fuzzy
+#: StatusesUI.php:1228
 msgid "Pre-Publication"
 msgstr "Pre-Publication"
 
-#: StatusesUI.php:1216
-#: StatusesUI.php:1322
+#: StatusesUI.php:1236 StatusesUI.php:1342
 msgid "Visibility"
 msgstr "Wiwo"
 
-#: StatusesUI.php:1227
+#: StatusesUI.php:1247
 msgid "Revision"
 msgstr "Atunṣe"
 
-#: StatusesUI.php:1287
+#: StatusesUI.php:1303
+#, fuzzy
+#| msgid "Visibility Statuses"
+msgid "Add New Visibility Status"
+msgstr "Ipo Wiwo"
+
+#: StatusesUI.php:1307
+#, fuzzy
+#| msgid ""
+#| "This status can be assigned to an unpublished post using the Post Status "
+#| "dropdown."
+msgid "This status can be assigned to customize post privacy."
+msgstr ""
+"Ipo yii le ṣee fi assign si ifiweranṣẹ ti a ko tẹjade nipa lilo akojọ aṣayan "
+"Ipo Ifiweranṣẹ."
+
+#: StatusesUI.php:1307
 msgid ""
 "This status can be assigned to an unpublished post using the Post Status "
 "dropdown."
 msgstr ""
-"Ipo yii le ṣee fi assign si ifiweranṣẹ ti a ko tẹjade nipa lilo akojọ "
-"aṣayan Ipo Ifiweranṣẹ."
+"Ipo yii le ṣee fi assign si ifiweranṣẹ ti a ko tẹjade nipa lilo akojọ aṣayan "
+"Ipo Ifiweranṣẹ."
 
-#: StatusesUI.php:1323
+#: StatusesUI.php:1343
 msgid "Integration"
 msgstr "Isopọ"
 
-#: StatusesUI.php:1324
+#: StatusesUI.php:1344
 msgid "Editor"
 msgstr "Oníṣàkóso"
 
-#: StatusesUI.php:1325
+#: StatusesUI.php:1345
 msgid "Advanced"
 msgstr "Ìtẹ̀siwaju"
 
-#: StatusesUI.php:1326
+#: StatusesUI.php:1346
 msgid "License"
 msgstr "Ìwé-ẹ̀rí"
 
-#: StatusHandler.php:17
-#: StatusHandler.php:186
+#: StatusHandler.php:17 StatusHandler.php:218
 msgid "Sorry, you do not have permission to edit custom statuses."
 msgstr "Ẹ jọ̀ọ́, o kò ní ẹ̀tọ́ láti ṣàtúnṣe ipo àṣà."
 
-#: StatusHandler.php:53
-#: StatusHandler.php:417
+#: StatusHandler.php:53 StatusHandler.php:454
 msgid "Please enter a name for the status"
 msgstr "Ẹ jọ̀ọ́, tẹ orúkọ kan fún ipo àṣà"
 
@@ -1121,21 +1149,19 @@ msgstr "Ẹ jọ̀ọ́, tẹ orúkọ kan fún ipo àṣà"
 msgid "Please enter a slug for the status"
 msgstr "Ẹ jọ̀ọ́, tẹ slug kan fún ipo àṣà"
 
-#: StatusHandler.php:64
-#: StatusHandler.php:422
+#: StatusHandler.php:64 StatusHandler.php:459
 msgid "Please enter a valid, non-numeric name for the status."
 msgstr "Ẹ jọ̀ọ́, tẹ orúkọ tó jẹ́wọ́, tí kò ní nọ́mbà fún ipo àṣà."
 
-#: StatusHandler.php:81
-#: StatusHandler.php:441
+#: StatusHandler.php:81 StatusHandler.php:478
 msgid "Status name cannot exceed 20 characters. Please try a shorter name."
 msgstr ""
-"Orúkọ ipo àṣà kò le kọja awọn ohun kikọ 20. Ẹ jọ̀ọ́, gbìmọ́ orúkọ kékèké "
-"kan."
+"Orúkọ ipo àṣà kò le kọja awọn ohun kikọ 20. Ẹ jọ̀ọ́, gbìmọ́ orúkọ kékèké kan."
 
 #: StatusHandler.php:100
 msgid "Status slug cannot exceed 20 characters. Please try a shorter name."
-msgstr "Slug ipo àṣà kò le kọja awọn ohun kikọ 20. Ẹ jọ̀ọ́, gbìmọ́ orúkọ kékèké kan."
+msgstr ""
+"Slug ipo àṣà kò le kọja awọn ohun kikọ 20. Ẹ jọ̀ọ́, gbìmọ́ orúkọ kékèké kan."
 
 #: StatusHandler.php:110
 msgid "Name conflicts with existing status. Please choose another."
@@ -1149,42 +1175,39 @@ msgstr "Orúkọ ipo àṣà ni ìdíwọ́. Ẹ jọ̀ọ́, yan orúkọ mír�
 msgid "Could not add status: "
 msgstr "A kò le fi ipo àṣà kun: "
 
-#: StatusHandler.php:193
-#: StatusHandler.php:750
+#: StatusHandler.php:225 StatusHandler.php:791
 msgid "Status does not exist."
 msgstr "Ipo àṣà kò wà."
 
-#: StatusHandler.php:198
-#: StatusHandler.php:745
+#: StatusHandler.php:230 StatusHandler.php:786
 msgid "Could not delete the status: "
 msgstr "A kò le pa ipo àṣà: "
 
-#: StatusHandler.php:222
-#: StatusHandler.php:372
+#: StatusHandler.php:254 StatusHandler.php:409
 msgid "Post status doesn't exist."
 msgstr "Ipo àṣà ìròyìn kò wà."
 
-#: StatusHandler.php:350
+#: StatusHandler.php:387
 msgid "Error updating post status."
 msgstr "Aṣiṣe kan ṣẹlẹ̀ ní imudojuiwọn ipo àṣà ìròyìn."
 
-#: StatusHandler.php:501
+#: StatusHandler.php:538
 msgid "Error updating post status labels."
 msgstr "Aṣiṣe ni imudojuiwọn awọn aami ipo ifiweranṣẹ."
 
-#: StatusHandler.php:673
+#: StatusHandler.php:714
 msgid "Cannot reassign to the status you want to delete"
 msgstr "A kò le tún fi ipo àṣà náà sílẹ̀ tí o fẹ́ pa"
 
-#: StatusHandler.php:720
+#: StatusHandler.php:761
 msgid "Restricted status "
 msgstr "Ipo àṣà tí a fi ofin pa "
 
-#: StatusHandler.php:747
+#: StatusHandler.php:788
 msgid "Status deleted"
 msgstr "Ipo àṣà ti pa"
 
-#: StatusHandler.php:769
+#: StatusHandler.php:810
 msgid "Status positions were not sent."
 msgstr "Àwọn ipo àṣà kò ránṣẹ́."
 
@@ -1196,6 +1219,10 @@ msgstr "Ipo"
 msgid "Status Name"
 msgstr "Orukọ Ipo"
 
+#: StatusListTable.php:168
+msgid "Name"
+msgstr ""
+
 #: StatusListTable.php:197
 msgid "Upgrade to create an approval workflow for published content"
 msgstr "Gba imudojuiwọn lati ṣẹda ilana ifọwọsi fun akoonu ti a tẹjade"
@@ -1204,19 +1231,25 @@ msgstr "Gba imudojuiwọn lati ṣẹda ilana ifọwọsi fun akoonu ti a tẹja
 msgid ""
 "Create approval workflows using PublishPress Statuses Pro together with the "
 "PublishPress Revisions Pro plugin"
-msgstr "Ṣẹda awọn ilana ifọwọsi nipa lilo PublishPress Statuses Pro pọ pẹlu pẹpẹ PublishPress Revisions Pro"
+msgstr ""
+"Ṣẹda awọn ilana ifọwọsi nipa lilo PublishPress Statuses Pro pọ pẹlu pẹpẹ "
+"PublishPress Revisions Pro"
 
 #: StatusListTable.php:206
 msgid ""
 "The PublishPress Revisions plugin allows users to submit changes to "
 "published posts"
-msgstr "Pẹpẹ PublishPress Revisions n gba awọn olumulo laaye lati fi awọn ayipada silẹ si awọn ifiweranṣẹ ti a tẹjade"
+msgstr ""
+"Pẹpẹ PublishPress Revisions n gba awọn olumulo laaye lati fi awọn ayipada "
+"silẹ si awọn ifiweranṣẹ ti a tẹjade"
 
 #: StatusListTable.php:209
 msgid ""
 "PublishPress Statuses plugin enables you to add statuses for post changes "
 "created with Revisions"
-msgstr "Pẹpẹ PublishPress Statuses n jẹ ki o fi awọn ipo kun fun awọn ayipada ifiweranṣẹ ti a ṣẹda pẹlu Revisions"
+msgstr ""
+"Pẹpẹ PublishPress Statuses n jẹ ki o fi awọn ipo kun fun awọn ayipada "
+"ifiweranṣẹ ti a ṣẹda pẹlu Revisions"
 
 #: StatusListTable.php:212
 msgid "Each post type can have different Revisions statuses"
@@ -1243,7 +1276,9 @@ msgstr "Ṣeto fun iru ifiweranṣẹ eyikeyi ati ipa lati ba ilana ṣiṣatunk
 msgid ""
 "To define and control Revision statuses, update the %1$sPublishPress "
 "Revisions%2$s plugin to version %3$s or higher."
-msgstr "Lati ṣalaye ati ṣakoso awọn ipo Revision, mu %1$sPublishPress Revisions%2$s pẹpẹ si ẹya %3$s tabi ga julọ."
+msgstr ""
+"Lati ṣalaye ati ṣakoso awọn ipo Revision, mu %1$sPublishPress Revisions%2$s "
+"pẹpẹ si ẹya %3$s tabi ga julọ."
 
 #: StatusListTable.php:340
 msgid "Main Workflow:"
@@ -1251,12 +1286,13 @@ msgstr "Ilana Pataki:"
 
 #: StatusListTable.php:366
 msgid "Drop any status here to include it in main workflow for new posts."
-msgstr "Sọ ipo eyikeyi nibi lati fi kun si ilana pataki fun awọn ifiweranṣẹ titun."
+msgstr ""
+"Sọ ipo eyikeyi nibi lati fi kun si ilana pataki fun awọn ifiweranṣẹ titun."
 
 #: StatusListTable.php:402
 msgid ""
-"Statuses in the main workflow are presented for convenient default "
-"selection when updating an unpublished post."
+"Statuses in the main workflow are presented for convenient default selection "
+"when updating an unpublished post."
 msgstr ""
 "Awọn ipo ninu ilana pataki ni a ṣe afihan fun yiyan aiyipada ti o rọrun "
 "nigbati n ṣe imudojuiwọn ifiweranṣẹ ti a ko tẹjade."
@@ -1275,8 +1311,7 @@ msgid ""
 "workflow."
 msgstr "Sọ ipo eyikeyi nibi lati jẹ ki o le yan ni ọwọ ni ita ilana pataki."
 
-#: StatusListTable.php:444
-#: StatusListTable.php:466
+#: StatusListTable.php:444 StatusListTable.php:466
 msgid "Drop any status here to disable."
 msgstr "Sọ ipo eyikeyi nibi lati mu un ṣiṣẹ."
 
@@ -1292,9 +1327,8 @@ msgstr "Ipo Wo fun Iwe Itẹsiwaju Aladani:"
 msgid "Alternate Workflows:"
 msgstr "Awọn ọna iṣẹ miiran:"
 
-#: StatusListTable.php:531
-#: StatusListTable.php:542
 #. translators: %s is the opening and closing <span> tags
+#: StatusListTable.php:531 StatusListTable.php:542
 msgid "Disabled Statuses (drag to re-enable):"
 msgstr "Ipo ti a ti pa (fa lati tun mu ṣiṣẹ):"
 
@@ -1308,11 +1342,14 @@ msgstr ""
 msgid ""
 "Upgrade to PublishPress Statuses Pro to define your own custom visibility "
 "statuses."
-msgstr "Gba igbesoke si PublishPress Statuses Pro lati ṣe idanimọ awọn ipo ifihan aṣa tirẹ."
+msgstr ""
+"Gba igbesoke si PublishPress Statuses Pro lati ṣe idanimọ awọn ipo ifihan "
+"aṣa tirẹ."
 
 #: StatusListTable.php:656
 msgid "Create multiple visibility statuses to show content to different users"
-msgstr "Ṣẹda ọpọlọpọ awọn ipo ifihan lati fi akoonu han si awọn olumulo oriṣiriṣi"
+msgstr ""
+"Ṣẹda ọpọlọpọ awọn ipo ifihan lati fi akoonu han si awọn olumulo oriṣiriṣi"
 
 #: StatusListTable.php:659
 msgid "Choose which user roles can see posts in each status"
@@ -1324,10 +1361,11 @@ msgstr "Yan awọn ipa olumulo wo ni o le gbe awọn ifiweranṣẹ si ipo kọ�
 
 #: StatusListTable.php:665
 msgid "Decide which user roles can edit posts in each status"
-msgstr "Pinnu awọn ipa olumulo wo ni o le satunkọ awọn ifiweranṣẹ ni ipo kọọkan"
+msgstr ""
+"Pinnu awọn ipa olumulo wo ni o le satunkọ awọn ifiweranṣẹ ni ipo kọọkan"
 
-#: StatusListTable.php:762
 #. translators: %s is the list of post types
+#: StatusListTable.php:762
 #, php-format
 msgid "%s, more..."
 msgstr "%s, diẹ sii..."
@@ -1344,11 +1382,18 @@ msgstr "Ipele"
 msgid "Default"
 msgstr "Aiyipada"
 
-#: StatusListTable.php:954
+#: StatusListTable.php:949
+msgid "Disable"
+msgstr ""
+
+#: StatusListTable.php:953
 msgid "Delete"
 msgstr "Pa"
 
-#: PublishPress_Statuses.php:849
-msgctxt "post action/button label"
-msgid "Pitch"
-msgstr "Titaja"
+#, php-format
+#~ msgid ""
+#~ "Status-specific post capabilities are %1$scurrently disabled%2$s. You can "
+#~ "%3$schange this setting%4$s."
+#~ msgstr ""
+#~ "Awọn agbara ifiweranṣẹ ti o ni ibatan si ipo jẹ %1$siwọn lọwọlọwọ ti a "
+#~ "ge%2$s. O le %3$syipada eto yii%4$s."
